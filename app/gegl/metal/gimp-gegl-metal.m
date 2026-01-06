@@ -33,10 +33,16 @@
 
 struct _GimpMetalContext
 {
-  id<MTLDevice>       device;
-  id<MTLCommandQueue> command_queue;
-  id<MTLLibrary>      library;
-  gboolean            initialized;
+  id<MTLDevice>                device;
+  id<MTLCommandQueue>          command_queue;
+  id<MTLLibrary>               library;
+  id<MTLComputePipelineState>  brightness_contrast_pipeline;
+  id<MTLComputePipelineState>  desaturate_pipeline;
+  id<MTLComputePipelineState>  invert_pipeline;
+  id<MTLComputePipelineState>  hue_saturation_pipeline;
+  id<MTLComputePipelineState>  convolve_3x3_pipeline;
+  id<MTLComputePipelineState>  threshold_pipeline;
+  gboolean                     initialized;
 };
 
 
@@ -123,17 +129,164 @@ gimp_metal_context_new (void)
 
     [context->command_queue retain];
 
-    // Load default library (will be compiled from shaders later)
-    context->library = [context->device newDefaultLibrary];
-    if (context->library != nil)
+    // Load Metal library (pre-compiled or runtime compilation)
+    NSError *library_error = nil;
+    context->library = nil;
+    
+    // Try 1: Load pre-compiled metallib (if Xcode was available during build)
+    NSString *metallib_path = @"/opt/homebrew/lib/gimp/" GIMP_APP_VERSION "/metal/default.metallib";
+    if ([[NSFileManager defaultManager] fileExistsAtPath:metallib_path])
       {
-        [context->library retain];
+        NSURL *library_url = [NSURL fileURLWithPath:metallib_path];
+        context->library = [context->device newLibraryWithURL:library_url error:&library_error];
+        if (context->library != nil)
+          g_message ("✅ Loaded pre-compiled Metal library (optimal performance)");
+        else
+          g_warning ("Failed to load pre-compiled Metal library: %s",
+                    [[library_error localizedDescription] UTF8String]);
+      }
+    
+    // Try 2: Runtime compilation from installed shader source
+    if (context->library == nil)
+      {
+        NSString *shader_path = @"/opt/homebrew/share/gimp/" GIMP_APP_VERSION "/metal/shaders.metal";
+        if ([[NSFileManager defaultManager] fileExistsAtPath:shader_path])
+          {
+            NSString *shader_source = [NSString stringWithContentsOfFile:shader_path
+                                                                encoding:NSUTF8StringEncoding
+                                                                   error:&library_error];
+            if (shader_source != nil)
+              {
+                MTLCompileOptions *options = [[MTLCompileOptions alloc] init];
+                options.languageVersion = MTLLanguageVersion3_0;
+                // Use mathMode instead of deprecated fastMathEnabled
+                if (@available(macOS 15.0, *))
+                  options.mathMode = MTLMathModeFast;
+                
+                context->library = [context->device newLibraryWithSource:shader_source
+                                                                 options:options
+                                                                   error:&library_error];
+                [options release];
+                
+                if (context->library != nil)
+                  {
+                    g_message ("✅ Compiled Metal shaders at runtime from %s", [shader_path UTF8String]);
+                    g_message ("   For optimal performance, install Xcode to pre-compile shaders");
+                  }
+                else
+                  {
+                    g_warning ("Failed to compile Metal shaders: %s",
+                              [[library_error localizedDescription] UTF8String]);
+                  }
+              }
+          }
+      }
+    
+    // Try 3: Fallback to default library (if somehow embedded)
+    if (context->library == nil)
+      {
+        context->library = [context->device newDefaultLibrary];
+        if (context->library != nil)
+          g_message ("Loaded default Metal library");
+      }
+    
+    if (context->library == nil)
+      {
+        g_warning ("❌ Failed to load Metal shader library - Metal backend disabled");
+        g_warning ("   Install shaders.metal to: /opt/homebrew/share/gimp/" GIMP_APP_VERSION "/metal/");
+        [context->command_queue release];
+        [context->device release];
+        g_free (context);
+        return NULL;
+      }
+    [context->library retain];
+
+    // Create compute pipeline states for all shaders
+    NSError *error = nil;
+    id<MTLFunction> function;
+
+    // Brightness/Contrast pipeline
+    function = [context->library newFunctionWithName:@"brightness_contrast"];
+    if (function)
+      {
+        context->brightness_contrast_pipeline = 
+          [context->device newComputePipelineStateWithFunction:function error:&error];
+        if (error != nil)
+          g_warning ("Failed to create brightness_contrast pipeline: %s",
+                     [[error localizedDescription] UTF8String]);
+        [function release];
+      }
+
+    // Desaturate pipeline
+    function = [context->library newFunctionWithName:@"desaturate"];
+    if (function)
+      {
+        context->desaturate_pipeline = 
+          [context->device newComputePipelineStateWithFunction:function error:&error];
+        if (error != nil)
+          g_warning ("Failed to create desaturate pipeline: %s",
+                     [[error localizedDescription] UTF8String]);
+        [function release];
+      }
+
+    // Invert pipeline
+    function = [context->library newFunctionWithName:@"invert"];
+    if (function)
+      {
+        context->invert_pipeline = 
+          [context->device newComputePipelineStateWithFunction:function error:&error];
+        if (error != nil)
+          g_warning ("Failed to create invert pipeline: %s",
+                     [[error localizedDescription] UTF8String]);
+        [function release];
+      }
+
+    // Hue/Saturation pipeline
+    function = [context->library newFunctionWithName:@"hue_saturation"];
+    if (function)
+      {
+        context->hue_saturation_pipeline = 
+          [context->device newComputePipelineStateWithFunction:function error:&error];
+        if (error != nil)
+          g_warning ("Failed to create hue_saturation pipeline: %s",
+                     [[error localizedDescription] UTF8String]);
+        [function release];
+      }
+
+    // Convolution 3x3 pipeline
+    function = [context->library newFunctionWithName:@"convolve_3x3"];
+    if (function)
+      {
+        context->convolve_3x3_pipeline = 
+          [context->device newComputePipelineStateWithFunction:function error:&error];
+        if (error != nil)
+          g_warning ("Failed to create convolve_3x3 pipeline: %s",
+                     [[error localizedDescription] UTF8String]);
+        [function release];
+      }
+
+    // Threshold pipeline
+    function = [context->library newFunctionWithName:@"threshold"];
+    if (function)
+      {
+        context->threshold_pipeline = 
+          [context->device newComputePipelineStateWithFunction:function error:&error];
+        if (error != nil)
+          g_warning ("Failed to create threshold pipeline: %s",
+                     [[error localizedDescription] UTF8String]);
+        [function release];
       }
 
     context->initialized = TRUE;
 
-    g_message ("Metal context initialized: %s",
-               [[context->device name] UTF8String]);
+    g_message ("Metal context initialized: %s (pipelines: %d/6 loaded)",
+               [[context->device name] UTF8String],
+               (context->brightness_contrast_pipeline != nil ? 1 : 0) +
+               (context->desaturate_pipeline != nil ? 1 : 0) +
+               (context->invert_pipeline != nil ? 1 : 0) +
+               (context->hue_saturation_pipeline != nil ? 1 : 0) +
+               (context->convolve_3x3_pipeline != nil ? 1 : 0) +
+               (context->threshold_pipeline != nil ? 1 : 0));
 
     return context;
   }
@@ -152,6 +305,19 @@ gimp_metal_context_free (GimpMetalContext *context)
   @autoreleasepool {
     if (context == NULL)
       return;
+
+    if (context->brightness_contrast_pipeline != nil)
+      [context->brightness_contrast_pipeline release];
+    if (context->desaturate_pipeline != nil)
+      [context->desaturate_pipeline release];
+    if (context->invert_pipeline != nil)
+      [context->invert_pipeline release];
+    if (context->hue_saturation_pipeline != nil)
+      [context->hue_saturation_pipeline release];
+    if (context->convolve_3x3_pipeline != nil)
+      [context->convolve_3x3_pipeline release];
+    if (context->threshold_pipeline != nil)
+      [context->threshold_pipeline release];
 
     if (context->library != nil)
       [context->library release];
@@ -233,7 +399,10 @@ gimp_metal_buffer_new (GimpMetalContext *context,
                   height:height
                   mipmapped:NO];
     descriptor.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
-    descriptor.storageMode = MTLStorageModeManaged;
+    
+    // Use Private storage mode for GPU-only buffers (faster)
+    // Use Managed only if we need CPU access
+    descriptor.storageMode = MTLStorageModePrivate;
 
     metal_buffer->texture = [context->device newTextureWithDescriptor:descriptor];
     if (metal_buffer->texture == nil)
@@ -351,7 +520,9 @@ gimp_metal_buffer_new_from_gegl (GimpMetalContext    *context,
                   height:extent.height
                   mipmapped:NO];
     descriptor.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
-    descriptor.storageMode = MTLStorageModeManaged;
+    
+    // Use Shared storage mode for data transfer between CPU and GPU
+    descriptor.storageMode = MTLStorageModeShared;
 
     metal_buffer->texture = [context->device newTextureWithDescriptor:descriptor];
     if (metal_buffer->texture == nil)
@@ -518,11 +689,34 @@ gimp_metal_brightness_contrast (GimpMetalContext *context,
     if (context == NULL || src == NULL || dest == NULL)
       return FALSE;
 
-    // TODO: Implement custom compute shader for brightness/contrast
-    // For now, return FALSE to fall back to CPU
-    g_message ("Metal brightness/contrast not yet implemented, using CPU fallback");
+    if (context->brightness_contrast_pipeline == nil)
+      {
+        g_warning ("Brightness/contrast pipeline not available");
+        return FALSE;
+      }
 
-    return FALSE;
+    id<MTLCommandBuffer> command_buffer = [context->command_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [command_buffer computeCommandEncoder];
+
+    [encoder setComputePipelineState:context->brightness_contrast_pipeline];
+    [encoder setTexture:src->texture atIndex:0];
+    [encoder setTexture:dest->texture atIndex:1];
+    [encoder setBytes:&brightness length:sizeof(float) atIndex:0];
+    [encoder setBytes:&contrast length:sizeof(float) atIndex:1];
+
+    MTLSize threadgroup_size = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+      (src->width + threadgroup_size.width - 1) / threadgroup_size.width,
+      (src->height + threadgroup_size.height - 1) / threadgroup_size.height,
+      1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threadgroup_size];
+    [encoder endEncoding];
+    [command_buffer commit];
+    [command_buffer waitUntilCompleted];
+
+    return [command_buffer status] == MTLCommandBufferStatusCompleted;
   }
 }
 
@@ -583,7 +777,34 @@ gimp_metal_desaturate (GimpMetalContext *context,
                        GimpMetalBuffer  *src,
                        GimpMetalBuffer  *dest)
 {
-  return gimp_metal_buffer_copy (context, src, dest);
+  @autoreleasepool {
+    if (context == NULL || src == NULL || dest == NULL)
+      return FALSE;
+
+    if (context->desaturate_pipeline == nil)
+      return FALSE;
+
+    id<MTLCommandBuffer> command_buffer = [context->command_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [command_buffer computeCommandEncoder];
+
+    [encoder setComputePipelineState:context->desaturate_pipeline];
+    [encoder setTexture:src->texture atIndex:0];
+    [encoder setTexture:dest->texture atIndex:1];
+
+    MTLSize threadgroup_size = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+      (src->width + 15) / 16,
+      (src->height + 15) / 16,
+      1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threadgroup_size];
+    [encoder endEncoding];
+    [command_buffer commit];
+    [command_buffer waitUntilCompleted];
+
+    return [command_buffer status] == MTLCommandBufferStatusCompleted;
+  }
 }
 
 gboolean
@@ -591,7 +812,34 @@ gimp_metal_invert (GimpMetalContext *context,
                    GimpMetalBuffer  *src,
                    GimpMetalBuffer  *dest)
 {
-  return gimp_metal_buffer_copy (context, src, dest);
+  @autoreleasepool {
+    if (context == NULL || src == NULL || dest == NULL)
+      return FALSE;
+
+    if (context->invert_pipeline == nil)
+      return FALSE;
+
+    id<MTLCommandBuffer> command_buffer = [context->command_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [command_buffer computeCommandEncoder];
+
+    [encoder setComputePipelineState:context->invert_pipeline];
+    [encoder setTexture:src->texture atIndex:0];
+    [encoder setTexture:dest->texture atIndex:1];
+
+    MTLSize threadgroup_size = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+      (src->width + 15) / 16,
+      (src->height + 15) / 16,
+      1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threadgroup_size];
+    [encoder endEncoding];
+    [command_buffer commit];
+    [command_buffer waitUntilCompleted];
+
+    return [command_buffer status] == MTLCommandBufferStatusCompleted;
+  }
 }
 
 gboolean
@@ -602,7 +850,37 @@ gimp_metal_hue_saturation (GimpMetalContext *context,
                            gfloat            saturation,
                            gfloat            lightness)
 {
-  return gimp_metal_buffer_copy (context, src, dest);
+  @autoreleasepool {
+    if (context == NULL || src == NULL || dest == NULL)
+      return FALSE;
+
+    if (context->hue_saturation_pipeline == nil)
+      return FALSE;
+
+    id<MTLCommandBuffer> command_buffer = [context->command_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [command_buffer computeCommandEncoder];
+
+    [encoder setComputePipelineState:context->hue_saturation_pipeline];
+    [encoder setTexture:src->texture atIndex:0];
+    [encoder setTexture:dest->texture atIndex:1];
+    [encoder setBytes:&hue_offset length:sizeof(float) atIndex:0];
+    [encoder setBytes:&saturation length:sizeof(float) atIndex:1];
+    [encoder setBytes:&lightness length:sizeof(float) atIndex:2];
+
+    MTLSize threadgroup_size = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+      (src->width + 15) / 16,
+      (src->height + 15) / 16,
+      1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threadgroup_size];
+    [encoder endEncoding];
+    [command_buffer commit];
+    [command_buffer waitUntilCompleted];
+
+    return [command_buffer status] == MTLCommandBufferStatusCompleted;
+  }
 }
 
 gboolean
@@ -611,7 +889,42 @@ gimp_metal_convolve_3x3 (GimpMetalContext *context,
                          GimpMetalBuffer  *dest,
                          const gfloat     *kernel)
 {
-  return gimp_metal_buffer_copy (context, src, dest);
+  @autoreleasepool {
+    if (context == NULL || src == NULL || dest == NULL || kernel == NULL)
+      return FALSE;
+
+    if (context->convolve_3x3_pipeline == nil)
+      return FALSE;
+
+    id<MTLCommandBuffer> command_buffer = [context->command_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [command_buffer computeCommandEncoder];
+
+    float divisor = 1.0f;
+    for (int i = 0; i < 9; i++)
+      divisor += kernel[i];
+    if (divisor == 0.0f)
+      divisor = 1.0f;
+
+    [encoder setComputePipelineState:context->convolve_3x3_pipeline];
+    [encoder setTexture:src->texture atIndex:0];
+    [encoder setTexture:dest->texture atIndex:1];
+    [encoder setBytes:kernel length:9 * sizeof(float) atIndex:0];
+    [encoder setBytes:&divisor length:sizeof(float) atIndex:1];
+
+    MTLSize threadgroup_size = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+      (src->width + 15) / 16,
+      (src->height + 15) / 16,
+      1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threadgroup_size];
+    [encoder endEncoding];
+    [command_buffer commit];
+    [command_buffer waitUntilCompleted];
+
+    return [command_buffer status] == MTLCommandBufferStatusCompleted;
+  }
 }
 
 gboolean
@@ -621,7 +934,36 @@ gimp_metal_threshold (GimpMetalContext *context,
                       gfloat            lower,
                       gfloat            upper)
 {
-  return gimp_metal_buffer_copy (context, src, dest);
+  @autoreleasepool {
+    if (context == NULL || src == NULL || dest == NULL)
+      return FALSE;
+
+    if (context->threshold_pipeline == nil)
+      return FALSE;
+
+    id<MTLCommandBuffer> command_buffer = [context->command_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [command_buffer computeCommandEncoder];
+
+    [encoder setComputePipelineState:context->threshold_pipeline];
+    [encoder setTexture:src->texture atIndex:0];
+    [encoder setTexture:dest->texture atIndex:1];
+    [encoder setBytes:&lower length:sizeof(float) atIndex:0];
+    [encoder setBytes:&upper length:sizeof(float) atIndex:1];
+
+    MTLSize threadgroup_size = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+      (src->width + 15) / 16,
+      (src->height + 15) / 16,
+      1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threadgroup_size];
+    [encoder endEncoding];
+    [command_buffer commit];
+    [command_buffer waitUntilCompleted];
+
+    return [command_buffer status] == MTLCommandBufferStatusCompleted;
+  }
 }
 
 

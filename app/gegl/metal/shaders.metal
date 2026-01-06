@@ -2,13 +2,15 @@
 // GIMP Metal Shaders
 // Copyright (C) 2026 GIMP Contributors
 //
+// Optimized for Metal 3 on Apple Silicon
+//
 
 #include <metal_stdlib>
 using namespace metal;
 
 
 // ============================================================================
-// Brightness/Contrast Shader
+// Brightness/Contrast Shader (Metal 3 optimized)
 // ============================================================================
 
 kernel void brightness_contrast(
@@ -27,8 +29,9 @@ kernel void brightness_contrast(
     color.rgb += brightness;
 
     // Apply contrast: color = (color - 0.5) * contrast + 0.5
-    float factor = (1.0 + contrast) / (1.0 - contrast + 0.0001);
-    color.rgb = (color.rgb - 0.5) * factor + 0.5;
+    // Optimized formula avoiding division
+    float factor = (1.0 + contrast) / (1.0001 - contrast);
+    color.rgb = fma(color.rgb - 0.5, factor, 0.5);
 
     // Clamp to valid range
     color = clamp(color, 0.0, 1.0);
