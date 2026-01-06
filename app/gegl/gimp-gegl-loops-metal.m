@@ -26,6 +26,9 @@
 #import <MetalPerformanceShaders/MetalPerformanceShaders.h>
 
 #include <gegl.h>
+#include <gio/gio.h>
+
+#include "libgimpbase/gimpbase.h"
 
 #include "gimp-gegl-loops-metal.h"
 
@@ -64,16 +67,27 @@ gimp_gegl_metal_init (void)
 
     /* Load shader library */
     NSError *error = nil;
-    NSString *shader_path = @"/opt/homebrew/share/gimp/3.2/metal/shaders.metallib";
+
+    /* Get GIMP data directory */
+    const gchar *data_dir = gimp_data_directory ();
+    gchar *metal_dir = g_build_filename (data_dir, "metal", NULL);
+    gchar *shader_lib_path = g_build_filename (metal_dir, "shaders.metallib", NULL);
+    gchar *shader_src_path = g_build_filename (metal_dir, "shaders.metal", NULL);
+
+    g_message ("Metal: Looking for shaders in: %s", metal_dir);
+
+    NSString *shader_path = [NSString stringWithUTF8String:shader_lib_path];
+    NSString *source_path = [NSString stringWithUTF8String:shader_src_path];
 
     if ([[NSFileManager defaultManager] fileExistsAtPath:shader_path])
       {
+        g_message ("Metal: Found precompiled library at %s", shader_lib_path);
         NSURL *library_url = [NSURL fileURLWithPath:shader_path];
         metal_library = [metal_device newLibraryWithURL:library_url error:&error];
 
         if (error)
           {
-            g_message ("Metal: Failed to load precompiled library, compiling at runtime");
+            g_message ("Metal: Failed to load precompiled library: %s", [[error localizedDescription] UTF8String]);
             error = nil;
           }
       }
@@ -81,33 +95,53 @@ gimp_gegl_metal_init (void)
     if (!metal_library)
       {
         /* Fallback: compile shaders at runtime */
-        NSString *source_path = @"/opt/homebrew/share/gimp/3.2/metal/shaders.metal";
-
         if ([[NSFileManager defaultManager] fileExistsAtPath:source_path])
           {
+            g_message ("Metal: Found shader source at %s, compiling...", shader_src_path);
             NSString *source = [NSString stringWithContentsOfFile:source_path
                                                           encoding:NSUTF8StringEncoding
                                                              error:&error];
 
-            if (!error)
+            if (error)
+              {
+                g_warning ("Metal: Failed to read shader source: %s", [[error localizedDescription] UTF8String]);
+              }
+            else
               {
                 metal_library = [metal_device newLibraryWithSource:source
                                                             options:nil
                                                               error:&error];
 
-                if (metal_library)
-                  g_message ("Metal: ✅ Compiled shaders at runtime");
+                if (error)
+                  {
+                    g_warning ("Metal: Failed to compile shaders: %s", [[error localizedDescription] UTF8String]);
+                  }
+                else if (metal_library)
+                  {
+                    g_message ("Metal: ✅ Compiled shaders at runtime from %s", shader_src_path);
+                  }
               }
+          }
+        else
+          {
+            g_warning ("Metal: Shader source not found at %s", shader_src_path);
           }
 
         if (error || !metal_library)
           {
             g_warning ("Metal: Failed to load/compile shaders");
+            g_free (shader_lib_path);
+            g_free (shader_src_path);
+            g_free (metal_dir);
             metal_queue = nil;
             metal_device = nil;
             return FALSE;
           }
       }
+
+    g_free (shader_lib_path);
+    g_free (shader_src_path);
+    g_free (metal_dir);
 
     metal_initialized = TRUE;
     g_message ("Metal: Initialized successfully - %s", [[metal_device name] UTF8String]);

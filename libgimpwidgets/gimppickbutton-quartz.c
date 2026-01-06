@@ -188,7 +188,7 @@
       func = (CGWindowListCreateImageFunc)dlsym(handle, "CGWindowListCreateImage");
     }
   });
-  
+
   root_image_ref = func ? func(rect, kCGWindowListOptionOnScreenOnly, kCGNullWindowID, kCGWindowImageDefault) : NULL;
   pixel_data = CGDataProviderCopyData (CGImageGetDataProvider (root_image_ref));
   data = CFDataGetBytePtr (pixel_data);

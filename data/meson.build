@@ -7,6 +7,12 @@ subdir('tags')
 subdir('tips')
 subdir('tool-presets')
 
+# Install Metal shaders if Metal is available
+if have_metal
+  install_data('metal/shaders.metal',
+    install_dir: gimpdatadir / 'metal',
+  )
+endif
 
 meson.add_install_script(python, '-c',
   'from pathlib import Path; import sys, os; destdir = os.environ.get("MESON_INSTALL_DESTDIR_PREFIX"); (Path(destdir) / sys.argv[1] / "fonts").mkdir(parents=True, exist_ok=True)',
