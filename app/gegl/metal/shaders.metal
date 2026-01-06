@@ -181,7 +181,7 @@ kernel void hue_saturation(
 kernel void convolve_3x3(
     texture2d<float, access::read>  src [[texture(0)]],
     texture2d<float, access::write> dst [[texture(1)]],
-    constant float *kernel [[buffer(0)]],
+    constant float *convolution_kernel [[buffer(0)]],
     constant float &divisor [[buffer(1)]],
     uint2 gid [[thread_position_in_grid]])
 {
@@ -198,7 +198,7 @@ kernel void convolve_3x3(
             coord = clamp(coord, int2(0), int2(src.get_width() - 1, src.get_height() - 1));
 
             float4 pixel = src.read(uint2(coord));
-            float weight = kernel[(ky + 1) * 3 + (kx + 1)];
+            float weight = convolution_kernel[(ky + 1) * 3 + (kx + 1)];
 
             sum += pixel * weight;
         }

@@ -132,7 +132,7 @@ gimp_metal_context_new (void)
     // Load Metal library (pre-compiled or runtime compilation)
     NSError *library_error = nil;
     context->library = nil;
-    
+
     // Try 1: Load pre-compiled metallib (if Xcode was available during build)
     NSString *metallib_path = @"/opt/homebrew/lib/gimp/" GIMP_APP_VERSION "/metal/default.metallib";
     if ([[NSFileManager defaultManager] fileExistsAtPath:metallib_path])
@@ -145,11 +145,11 @@ gimp_metal_context_new (void)
           g_warning ("Failed to load pre-compiled Metal library: %s",
                     [[library_error localizedDescription] UTF8String]);
       }
-    
+
     // Try 2: Runtime compilation from installed shader source
     if (context->library == nil)
       {
-        NSString *shader_path = @"/opt/homebrew/share/gimp/" GIMP_APP_VERSION "/metal/shaders.metal";
+        NSString *shader_path = @"/opt/homebrew/share/gimp/3.2/metal/shaders.metal";
         if ([[NSFileManager defaultManager] fileExistsAtPath:shader_path])
           {
             NSString *shader_source = [NSString stringWithContentsOfFile:shader_path
@@ -162,12 +162,12 @@ gimp_metal_context_new (void)
                 // Use mathMode instead of deprecated fastMathEnabled
                 if (@available(macOS 15.0, *))
                   options.mathMode = MTLMathModeFast;
-                
+
                 context->library = [context->device newLibraryWithSource:shader_source
                                                                  options:options
                                                                    error:&library_error];
                 [options release];
-                
+
                 if (context->library != nil)
                   {
                     g_message ("✅ Compiled Metal shaders at runtime from %s", [shader_path UTF8String]);
@@ -181,7 +181,7 @@ gimp_metal_context_new (void)
               }
           }
       }
-    
+
     // Try 3: Fallback to default library (if somehow embedded)
     if (context->library == nil)
       {
@@ -189,7 +189,7 @@ gimp_metal_context_new (void)
         if (context->library != nil)
           g_message ("Loaded default Metal library");
       }
-    
+
     if (context->library == nil)
       {
         g_warning ("❌ Failed to load Metal shader library - Metal backend disabled");
@@ -209,7 +209,7 @@ gimp_metal_context_new (void)
     function = [context->library newFunctionWithName:@"brightness_contrast"];
     if (function)
       {
-        context->brightness_contrast_pipeline = 
+        context->brightness_contrast_pipeline =
           [context->device newComputePipelineStateWithFunction:function error:&error];
         if (error != nil)
           g_warning ("Failed to create brightness_contrast pipeline: %s",
@@ -221,7 +221,7 @@ gimp_metal_context_new (void)
     function = [context->library newFunctionWithName:@"desaturate"];
     if (function)
       {
-        context->desaturate_pipeline = 
+        context->desaturate_pipeline =
           [context->device newComputePipelineStateWithFunction:function error:&error];
         if (error != nil)
           g_warning ("Failed to create desaturate pipeline: %s",
@@ -233,7 +233,7 @@ gimp_metal_context_new (void)
     function = [context->library newFunctionWithName:@"invert"];
     if (function)
       {
-        context->invert_pipeline = 
+        context->invert_pipeline =
           [context->device newComputePipelineStateWithFunction:function error:&error];
         if (error != nil)
           g_warning ("Failed to create invert pipeline: %s",
@@ -245,7 +245,7 @@ gimp_metal_context_new (void)
     function = [context->library newFunctionWithName:@"hue_saturation"];
     if (function)
       {
-        context->hue_saturation_pipeline = 
+        context->hue_saturation_pipeline =
           [context->device newComputePipelineStateWithFunction:function error:&error];
         if (error != nil)
           g_warning ("Failed to create hue_saturation pipeline: %s",
@@ -257,7 +257,7 @@ gimp_metal_context_new (void)
     function = [context->library newFunctionWithName:@"convolve_3x3"];
     if (function)
       {
-        context->convolve_3x3_pipeline = 
+        context->convolve_3x3_pipeline =
           [context->device newComputePipelineStateWithFunction:function error:&error];
         if (error != nil)
           g_warning ("Failed to create convolve_3x3 pipeline: %s",
@@ -269,7 +269,7 @@ gimp_metal_context_new (void)
     function = [context->library newFunctionWithName:@"threshold"];
     if (function)
       {
-        context->threshold_pipeline = 
+        context->threshold_pipeline =
           [context->device newComputePipelineStateWithFunction:function error:&error];
         if (error != nil)
           g_warning ("Failed to create threshold pipeline: %s",
@@ -399,7 +399,7 @@ gimp_metal_buffer_new (GimpMetalContext *context,
                   height:height
                   mipmapped:NO];
     descriptor.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
-    
+
     // Use Private storage mode for GPU-only buffers (faster)
     // Use Managed only if we need CPU access
     descriptor.storageMode = MTLStorageModePrivate;
@@ -520,7 +520,7 @@ gimp_metal_buffer_new_from_gegl (GimpMetalContext    *context,
                   height:extent.height
                   mipmapped:NO];
     descriptor.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
-    
+
     // Use Shared storage mode for data transfer between CPU and GPU
     descriptor.storageMode = MTLStorageModeShared;
 
