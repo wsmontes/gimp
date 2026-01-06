@@ -218,7 +218,7 @@ osx_ldflags = []
 if platform_osx
   add_languages('objc')
   osx_ldflags += ['-Wl,-framework,Foundation', '-Wl,-framework,AppKit', '-ObjC']
-  
+
   # Check for Metal framework on macOS
   objc = meson.get_compiler('objc')
   have_metal = objc.links('''
@@ -230,7 +230,7 @@ if platform_osx
     ''',
     args: ['-framework', 'Metal'],
     name: 'Metal framework')
-  
+
   if have_metal
     conf.set('HAVE_METAL', 1)
     osx_ldflags += ['-Wl,-framework,Metal', '-Wl,-framework,MetalPerformanceShaders']
@@ -238,7 +238,7 @@ if platform_osx
   else
     message('Metal GPU acceleration: disabled')
   endif
-  
+
   add_project_link_arguments(osx_ldflags, language : ['objc', 'c'])
 else
   have_metal = false

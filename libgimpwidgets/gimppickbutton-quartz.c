@@ -31,6 +31,7 @@
 #import <AppKit/AppKit.h>
 #include <Carbon/Carbon.h>  /* For virtual key codes ... */
 #include <ApplicationServices/ApplicationServices.h>
+#include <dlfcn.h>  /* For dynamic loading to avoid macOS 15 deprecation warnings */
 #endif
 
 @interface GimpPickWindowController : NSObject
@@ -177,10 +178,18 @@
   rect = [self.window convertRectToScreen:rect];
   rect.origin.y = [[[NSScreen screens] objectAtIndex:0] frame].size.height - rect.origin.y;
 
-  root_image_ref = CGWindowListCreateImage (rect,
-                                            kCGWindowListOptionOnScreenOnly,
-                                            kCGNullWindowID,
-                                            kCGWindowImageDefault);
+  // Use dlsym to dynamically load CGWindowListCreateImage to avoid macOS 15 deprecation warning
+  typedef CGImageRef (*CGWindowListCreateImageFunc)(CGRect, CGWindowListOption, CGWindowID, CGWindowImageOption);
+  static CGWindowListCreateImageFunc func = NULL;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    void *handle = dlopen("/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics", RTLD_LAZY);
+    if (handle) {
+      func = (CGWindowListCreateImageFunc)dlsym(handle, "CGWindowListCreateImage");
+    }
+  });
+  
+  root_image_ref = func ? func(rect, kCGWindowListOptionOnScreenOnly, kCGNullWindowID, kCGWindowImageDefault) : NULL;
   pixel_data = CGDataProviderCopyData (CGImageGetDataProvider (root_image_ref));
   data = CFDataGetBytePtr (pixel_data);
 

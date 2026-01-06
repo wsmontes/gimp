@@ -46,7 +46,7 @@ gimp_gegl_metal_init (void)
 
   @autoreleasepool {
     metal_device = MTLCreateSystemDefaultDevice();
-    
+
     if (!metal_device)
       {
         g_warning ("Metal: Failed to create device");
@@ -54,7 +54,7 @@ gimp_gegl_metal_init (void)
       }
 
     metal_queue = [metal_device newCommandQueue];
-    
+
     if (!metal_queue)
       {
         g_warning ("Metal: Failed to create command queue");
@@ -65,12 +65,12 @@ gimp_gegl_metal_init (void)
     /* Load shader library */
     NSError *error = nil;
     NSString *shader_path = @"/opt/homebrew/share/gimp/3.2/metal/shaders.metallib";
-    
+
     if ([[NSFileManager defaultManager] fileExistsAtPath:shader_path])
       {
         NSURL *library_url = [NSURL fileURLWithPath:shader_path];
         metal_library = [metal_device newLibraryWithURL:library_url error:&error];
-        
+
         if (error)
           {
             g_message ("Metal: Failed to load precompiled library, compiling at runtime");
@@ -82,24 +82,24 @@ gimp_gegl_metal_init (void)
       {
         /* Fallback: compile shaders at runtime */
         NSString *source_path = @"/opt/homebrew/share/gimp/3.2/metal/shaders.metal";
-        
+
         if ([[NSFileManager defaultManager] fileExistsAtPath:source_path])
           {
             NSString *source = [NSString stringWithContentsOfFile:source_path
                                                           encoding:NSUTF8StringEncoding
                                                              error:&error];
-            
+
             if (!error)
               {
                 metal_library = [metal_device newLibraryWithSource:source
                                                             options:nil
                                                               error:&error];
-                
+
                 if (metal_library)
                   g_message ("Metal: ✅ Compiled shaders at runtime");
               }
           }
-        
+
         if (error || !metal_library)
           {
             g_warning ("Metal: Failed to load/compile shaders");
@@ -142,30 +142,30 @@ buffer_to_metal_texture (GeglBuffer          *buffer,
   @autoreleasepool {
     gint width  = rect->width;
     gint height = rect->height;
-    
+
     MTLTextureDescriptor *desc = [MTLTextureDescriptor
         texture2DDescriptorWithPixelFormat:MTLPixelFormatRGBA32Float
                                      width:width
                                     height:height
                                  mipmapped:NO];
     desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
-    
+
     id<MTLTexture> texture = [device newTextureWithDescriptor:desc];
-    
+
     if (!texture)
       return nil;
-    
+
     /* Read from GeglBuffer */
     gfloat *pixels = g_new (gfloat, width * height * 4);
     gegl_buffer_get (buffer, rect, 1.0, babl_format ("RGBA float"),
                      pixels, GEGL_AUTO_ROWSTRIDE, GEGL_ABYSS_NONE);
-    
+
     /* Upload to Metal texture */
     [texture replaceRegion:MTLRegionMake2D(0, 0, width, height)
                mipmapLevel:0
                  withBytes:pixels
                bytesPerRow:width * 4 * sizeof(gfloat)];
-    
+
     g_free (pixels);
     return texture;
   }
@@ -180,17 +180,17 @@ metal_texture_to_buffer (id<MTLTexture>       texture,
   @autoreleasepool {
     gint width  = rect->width;
     gint height = rect->height;
-    
+
     gfloat *pixels = g_new (gfloat, width * height * 4);
-    
+
     [texture getBytes:pixels
           bytesPerRow:width * 4 * sizeof(gfloat)
            fromRegion:MTLRegionMake2D(0, 0, width, height)
           mipmapLevel:0];
-    
+
     gegl_buffer_set (buffer, rect, 0, babl_format ("RGBA float"),
                      pixels, GEGL_AUTO_ROWSTRIDE);
-    
+
     g_free (pixels);
   }
 }
@@ -219,7 +219,7 @@ gimp_gegl_metal_invert (GeglBuffer          *src,
                                  mipmapped:NO];
     desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
     id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
-    
+
     if (!output_tex)
       return FALSE;
 
@@ -231,33 +231,33 @@ gimp_gegl_metal_invert (GeglBuffer          *src,
     NSError *error = nil;
     id<MTLComputePipelineState> pipeline =
         [metal_device newComputePipelineStateWithFunction:function error:&error];
-    
+
     if (error || !pipeline)
       return FALSE;
 
     /* Execute shader */
     id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
     id<MTLComputeCommandEncoder> encoder = [cmd computeCommandEncoder];
-    
+
     [encoder setComputePipelineState:pipeline];
     [encoder setTexture:input_tex atIndex:0];
     [encoder setTexture:output_tex atIndex:1];
-    
+
     MTLSize threads = MTLSizeMake(16, 16, 1);
     MTLSize threadgroups = MTLSizeMake(
         (dest_rect->width + 15) / 16,
         (dest_rect->height + 15) / 16,
         1
     );
-    
+
     [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threads];
     [encoder endEncoding];
     [cmd commit];
     [cmd waitUntilCompleted];
-    
+
     /* Copy result back */
     metal_texture_to_buffer (output_tex, dest, dest_rect);
-    
+
     return TRUE;
   }
 }
@@ -287,7 +287,7 @@ gimp_gegl_metal_brightness_contrast (GeglBuffer          *src,
                                  mipmapped:NO];
     desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
     id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
-    
+
     if (!output_tex)
       return FALSE;
 
@@ -298,35 +298,35 @@ gimp_gegl_metal_brightness_contrast (GeglBuffer          *src,
     NSError *error = nil;
     id<MTLComputePipelineState> pipeline =
         [metal_device newComputePipelineStateWithFunction:function error:&error];
-    
+
     if (error || !pipeline)
       return FALSE;
 
     id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
     id<MTLComputeCommandEncoder> encoder = [cmd computeCommandEncoder];
-    
+
     [encoder setComputePipelineState:pipeline];
     [encoder setTexture:input_tex atIndex:0];
     [encoder setTexture:output_tex atIndex:1];
-    
+
     /* Pass parameters */
     float params[2] = { brightness, contrast };
     [encoder setBytes:params length:sizeof(params) atIndex:0];
-    
+
     MTLSize threads = MTLSizeMake(16, 16, 1);
     MTLSize threadgroups = MTLSizeMake(
         (dest_rect->width + 15) / 16,
         (dest_rect->height + 15) / 16,
         1
     );
-    
+
     [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threads];
     [encoder endEncoding];
     [cmd commit];
     [cmd waitUntilCompleted];
-    
+
     metal_texture_to_buffer (output_tex, dest, dest_rect);
-    
+
     return TRUE;
   }
 }
@@ -356,21 +356,21 @@ gimp_gegl_metal_blur_gaussian (GeglBuffer          *src,
                                  mipmapped:NO];
     desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
     id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
-    
+
     if (!output_tex)
       return FALSE;
 
     /* Use Metal Performance Shaders for high-quality Gaussian blur */
     MPSImageGaussianBlur *blur = [[MPSImageGaussianBlur alloc]
         initWithDevice:metal_device sigma:std_dev_x];
-    
+
     id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
     [blur encodeToCommandBuffer:cmd sourceTexture:input_tex destinationTexture:output_tex];
     [cmd commit];
     [cmd waitUntilCompleted];
-    
+
     metal_texture_to_buffer (output_tex, dest, dest_rect);
-    
+
     return TRUE;
   }
 }
@@ -398,7 +398,7 @@ gimp_gegl_metal_desaturate (GeglBuffer          *src,
                                  mipmapped:NO];
     desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
     id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
-    
+
     if (!output_tex)
       return FALSE;
 
@@ -409,31 +409,31 @@ gimp_gegl_metal_desaturate (GeglBuffer          *src,
     NSError *error = nil;
     id<MTLComputePipelineState> pipeline =
         [metal_device newComputePipelineStateWithFunction:function error:&error];
-    
+
     if (error || !pipeline)
       return FALSE;
 
     id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
     id<MTLComputeCommandEncoder> encoder = [cmd computeCommandEncoder];
-    
+
     [encoder setComputePipelineState:pipeline];
     [encoder setTexture:input_tex atIndex:0];
     [encoder setTexture:output_tex atIndex:1];
-    
+
     MTLSize threads = MTLSizeMake(16, 16, 1);
     MTLSize threadgroups = MTLSizeMake(
         (dest_rect->width + 15) / 16,
         (dest_rect->height + 15) / 16,
         1
     );
-    
+
     [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threads];
     [encoder endEncoding];
     [cmd commit];
     [cmd waitUntilCompleted];
-    
+
     metal_texture_to_buffer (output_tex, dest, dest_rect);
-    
+
     return TRUE;
   }
 }
@@ -461,20 +461,20 @@ gimp_gegl_metal_edge_sobel (GeglBuffer          *src,
                                  mipmapped:NO];
     desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
     id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
-    
+
     if (!output_tex)
       return FALSE;
 
     /* Use MPS Sobel filter */
     MPSImageSobel *sobel = [[MPSImageSobel alloc] initWithDevice:metal_device];
-    
+
     id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
     [sobel encodeToCommandBuffer:cmd sourceTexture:input_tex destinationTexture:output_tex];
     [cmd commit];
     [cmd waitUntilCompleted];
-    
+
     metal_texture_to_buffer (output_tex, dest, dest_rect);
-    
+
     return TRUE;
   }
 }
@@ -503,7 +503,7 @@ gimp_gegl_metal_sharpen (GeglBuffer          *src,
                                  mipmapped:NO];
     desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
     id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
-    
+
     if (!output_tex)
       return FALSE;
 
@@ -514,32 +514,32 @@ gimp_gegl_metal_sharpen (GeglBuffer          *src,
     NSError *error = nil;
     id<MTLComputePipelineState> pipeline =
         [metal_device newComputePipelineStateWithFunction:function error:&error];
-    
+
     if (error || !pipeline)
       return FALSE;
 
     id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
     id<MTLComputeCommandEncoder> encoder = [cmd computeCommandEncoder];
-    
+
     [encoder setComputePipelineState:pipeline];
     [encoder setTexture:input_tex atIndex:0];
     [encoder setTexture:output_tex atIndex:1];
     [encoder setBytes:&amount length:sizeof(amount) atIndex:0];
-    
+
     MTLSize threads = MTLSizeMake(16, 16, 1);
     MTLSize threadgroups = MTLSizeMake(
         (dest_rect->width + 15) / 16,
         (dest_rect->height + 15) / 16,
         1
     );
-    
+
     [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threads];
     [encoder endEncoding];
     [cmd commit];
     [cmd waitUntilCompleted];
-    
+
     metal_texture_to_buffer (output_tex, dest, dest_rect);
-    
+
     return TRUE;
   }
 }
