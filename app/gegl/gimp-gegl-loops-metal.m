@@ -138,4 +138,175 @@ cleanup:
 }
 
 
+/**
+ * gimp_gegl_metal_brightness_contrast:
+ *
+ * Metal-accelerated brightness/contrast adjustment
+ */
+gboolean
+gimp_gegl_metal_brightness_contrast (GeglBuffer          *src_buffer,
+                                     const GeglRectangle *src_rect,
+                                     GeglBuffer          *dest_buffer,
+                                     const GeglRectangle *dest_rect,
+                                     gfloat               brightness,
+                                     gfloat               contrast)
+{
+  GimpMetalBuffer *src_metal = NULL;
+  GimpMetalBuffer *dest_metal = NULL;
+  gboolean         success = FALSE;
+
+  if (!gimp_gegl_loops_use_metal() || metal_context == NULL)
+    return FALSE;
+
+  src_metal = gimp_metal_buffer_new_from_gegl (metal_context, src_buffer, src_rect);
+  if (src_metal == NULL)
+    goto cleanup;
+
+  dest_metal = gimp_metal_buffer_new_from_gegl (metal_context, dest_buffer, dest_rect);
+  if (dest_metal == NULL)
+    goto cleanup;
+
+  success = gimp_metal_brightness_contrast (metal_context, src_metal, dest_metal,
+                                            brightness, contrast);
+
+  if (success)
+    gimp_metal_buffer_copy_to_gegl (dest_metal, dest_buffer, dest_rect);
+
+cleanup:
+  if (src_metal != NULL)
+    gimp_metal_buffer_free (src_metal);
+  if (dest_metal != NULL)
+    gimp_metal_buffer_free (dest_metal);
+
+  return success;
+}
+
+
+/**
+ * gimp_gegl_metal_desaturate:
+ *
+ * Metal-accelerated desaturation
+ */
+gboolean
+gimp_gegl_metal_desaturate (GeglBuffer          *src_buffer,
+                            const GeglRectangle *src_rect,
+                            GeglBuffer          *dest_buffer,
+                            const GeglRectangle *dest_rect)
+{
+  GimpMetalBuffer *src_metal = NULL;
+  GimpMetalBuffer *dest_metal = NULL;
+  gboolean         success = FALSE;
+
+  if (!gimp_gegl_loops_use_metal() || metal_context == NULL)
+    return FALSE;
+
+  src_metal = gimp_metal_buffer_new_from_gegl (metal_context, src_buffer, src_rect);
+  if (src_metal == NULL)
+    goto cleanup;
+
+  dest_metal = gimp_metal_buffer_new_from_gegl (metal_context, dest_buffer, dest_rect);
+  if (dest_metal == NULL)
+    goto cleanup;
+
+  success = gimp_metal_desaturate (metal_context, src_metal, dest_metal);
+
+  if (success)
+    gimp_metal_buffer_copy_to_gegl (dest_metal, dest_buffer, dest_rect);
+
+cleanup:
+  if (src_metal != NULL)
+    gimp_metal_buffer_free (src_metal);
+  if (dest_metal != NULL)
+    gimp_metal_buffer_free (dest_metal);
+
+  return success;
+}
+
+
+/**
+ * gimp_gegl_metal_invert:
+ *
+ * Metal-accelerated color inversion
+ */
+gboolean
+gimp_gegl_metal_invert (GeglBuffer          *src_buffer,
+                        const GeglRectangle *src_rect,
+                        GeglBuffer          *dest_buffer,
+                        const GeglRectangle *dest_rect)
+{
+  GimpMetalBuffer *src_metal = NULL;
+  GimpMetalBuffer *dest_metal = NULL;
+  gboolean         success = FALSE;
+
+  if (!gimp_gegl_loops_use_metal() || metal_context == NULL)
+    return FALSE;
+
+  src_metal = gimp_metal_buffer_new_from_gegl (metal_context, src_buffer, src_rect);
+  if (src_metal == NULL)
+    goto cleanup;
+
+  dest_metal = gimp_metal_buffer_new_from_gegl (metal_context, dest_buffer, dest_rect);
+  if (dest_metal == NULL)
+    goto cleanup;
+
+  success = gimp_metal_invert (metal_context, src_metal, dest_metal);
+
+  if (success)
+    gimp_metal_buffer_copy_to_gegl (dest_metal, dest_buffer, dest_rect);
+
+cleanup:
+  if (src_metal != NULL)
+    gimp_metal_buffer_free (src_metal);
+  if (dest_metal != NULL)
+    gimp_metal_buffer_free (dest_metal);
+
+  return success;
+}
+
+
+/**
+ * gimp_gegl_metal_hue_saturation:
+ *
+ * Metal-accelerated hue/saturation adjustment
+ */
+gboolean
+gimp_gegl_metal_hue_saturation (GeglBuffer          *src_buffer,
+                                const GeglRectangle *src_rect,
+                                GeglBuffer          *dest_buffer,
+                                const GeglRectangle *dest_rect,
+                                gfloat               hue_offset,
+                                gfloat               saturation,
+                                gfloat               lightness)
+{
+  GimpMetalBuffer *src_metal = NULL;
+  GimpMetalBuffer *dest_metal = NULL;
+  gboolean         success = FALSE;
+
+  if (!gimp_gegl_loops_use_metal() || metal_context == NULL)
+    return FALSE;
+
+  src_metal = gimp_metal_buffer_new_from_gegl (metal_context, src_buffer, src_rect);
+  if (src_metal == NULL)
+    goto cleanup;
+
+  dest_metal = gimp_metal_buffer_new_from_gegl (metal_context, dest_buffer, dest_rect);
+  if (dest_metal == NULL)
+    goto cleanup;
+
+  success = gimp_metal_hue_saturation (metal_context, src_metal, dest_metal,
+                                       hue_offset, saturation, lightness);
+
+  if (success)
+    gimp_metal_buffer_copy_to_gegl (dest_metal, dest_buffer, dest_rect);
+
+cleanup:
+  if (src_metal != NULL)
+    gimp_metal_buffer_free (src_metal);
+  if (dest_metal != NULL)
+    gimp_metal_buffer_free (dest_metal);
+
+  return success;
+}
+
+
 #endif /* HAVE_METAL */
