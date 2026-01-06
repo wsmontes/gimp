@@ -29,6 +29,11 @@ libappgegl_loops = simd.check('gimp-gegl-loops-simd',
   ],
 )
 
+# Metal backend (macOS only)
+if platform_osx
+  subdir('metal')
+endif
+
 libappgegl_sources = [
   'gimp-babl-compat.c',
   'gimp-babl.c',
@@ -47,15 +52,24 @@ libappgegl_sources = [
   stamp_gegl_enums
 ]
 
+# Setup link_with for Metal backend
+libappgegl_link_with = [ libappgegl_loops[0] ]
+libappgegl_deps = [
+  cairo,
+  gegl,
+  gdk_pixbuf,
+  gexiv2
+]
+
+if platform_osx
+  libappgegl_link_with += [ libappmetal ]
+  libappgegl_deps += [ metal_dep ]
+endif
+
 libappgegl = static_library('appgegl',
   libappgegl_sources,
-  link_with: libappgegl_loops[0],
+  link_with: libappgegl_link_with,
   include_directories: [ rootInclude, rootAppInclude, ],
   c_args: '-DG_LOG_DOMAIN="Gimp-GEGL"',
-  dependencies: [
-    cairo,
-    gegl,
-    gdk_pixbuf,
-    gexiv2
-  ],
+  dependencies: libappgegl_deps,
 )

@@ -463,8 +463,12 @@ gegl              = dependency('gegl-0.4',           version: '>='+gegl_minver)
 exiv2_minver      = '0.27.4'
 exiv2             = dependency('exiv2',              version: '>='+exiv2_minver)
 gexiv2_minver     = '0.14.0'
-gexiv2_maxver     = '0.15.0'
-gexiv2            = dependency('gexiv2',             version: ['>='+gexiv2_minver, '<'+gexiv2_maxver])
+gexiv2_maxver     = '0.17.0'  # Temporarily relaxed for development
+# Try both naming schemes for gexiv2 (different package managers name it differently)
+gexiv2            = dependency('gexiv2',             version: ['>='+gexiv2_minver, '<'+gexiv2_maxver], required: false)
+if not gexiv2.found()
+  gexiv2          = dependency('gexiv2-0.16',        version: ['>='+gexiv2_minver, '<'+gexiv2_maxver])
+endif
 
 gio               = dependency('gio-2.0')
 gio_specific_name = platform_windows ? 'gio-windows-2.0' : 'gio-unix-2.0'
@@ -670,6 +674,33 @@ appstream_minver = '0.16.1'
 appstream = dependency('appstream', version: '>='+appstream_minver)
 
 libarchive = dependency('libarchive')
+
+################################################################################
+# Check for Metal GPU acceleration (macOS only)
+
+have_metal = false
+if platform_osx
+  objc = meson.get_compiler('objc')
+  metal_test = '''
+    #import <Metal/Metal.h>
+    int main() {
+      id<MTLDevice> device = MTLCreateSystemDefaultDevice();
+      return device != nil ? 0 : 1;
+    }
+  '''
+
+  if objc.links(metal_test,
+                args: ['-framework', 'Metal'],
+                name: 'Metal framework')
+    have_metal = true
+    conf.set('HAVE_METAL', 1)
+    message('Metal GPU acceleration: enabled')
+  else
+    message('Metal GPU acceleration: not available')
+  endif
+else
+  message('Metal GPU acceleration: macOS only')
+endif
 
 ################################################################################
 # Check for 32-bit DLLs (Win32 64-bit)

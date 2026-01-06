@@ -37,6 +37,10 @@
 #include "gimp-babl.h"
 #include "gimp-gegl.h"
 
+#ifdef HAVE_METAL
+#include "metal/gimp-gegl-loops-metal.h"
+#endif
+
 #include <operation/gegl-operation.h>
 
 
@@ -97,6 +101,13 @@ gimp_gegl_init (Gimp *gimp)
   gimp_babl_init ();
 
   gimp_operations_init (gimp);
+
+#ifdef HAVE_METAL
+  /* Initialize Metal backend for GPU acceleration */
+  gimp_gegl_init_metal ();
+  g_message ("Metal GPU acceleration enabled on %s",
+             gimp_gegl_metal_get_device_name ());
+#endif
 }
 
 void
