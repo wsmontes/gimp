@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>org.gimp.extension.goat-exercises</id>
+  <extends>org.gimp.GIMP</extends>
+  <name>Goat Exercises</name>
+  <name xml:lang="zh-Hant-TW">山羊範例</name>
+  <name xml:lang="zh-Hans-CN">山羊训练</name>
+  <name xml:lang="uk">Вправи з козою</name>
+  <name xml:lang="tr">Keçi Çalışmaları</name>
+  <name xml:lang="sv">Get-övningar</name>
+  <name xml:lang="sr-Latn">Vežbe za kozicu</name>
+  <name xml:lang="sr-Cyrl">Вежбе за козицу</name>
+  <name xml:lang="sl">Kozje vaje</name>
+  <name xml:lang="ru">Тренировка козы</name>
+  <name xml:lang="pt-BR">Exercícios de cabra</name>
+  <name xml:lang="pt">Exercícios de cabra</name>
+  <name xml:lang="nn">Øving med ei geit</name>
+  <name xml:lang="nl">Geitenoefening</name>
+  <name xml:lang="lv">Kazas vingrojumi</name>
+  <name xml:lang="ka">თხის ვარჯიშები</name>
+  <name xml:lang="hu">Kecske edzések</name>
+  <name xml:lang="fr">Exercices GEGL</name>
+  <name xml:lang="eu">Ahuntz-ariketak</name>
+  <name xml:lang="es">Ejercicios de cabra</name>
+  <name xml:lang="en-GB">Goat Exercises</name>
+  <name xml:lang="el">Χρήσεις goat</name>
+  <name xml:lang="de">Ziegentraining</name>
+  <name xml:lang="da">Gedeøvelser</name>
+  <name xml:lang="ca">Entrenament de la cabra</name>
+  <name xml:lang="bg">Упражнения за Goat</name>
+  <summary>Official Demo Plug-ins</summary>
+  <summary xml:lang="zh-Hans-CN">官方的插件示例</summary>
+  <summary xml:lang="uk">Офіційна демонстрація додатків</summary>
+  <summary xml:lang="tr">Resmi Demo Eklentileri</summary>
+  <summary xml:lang="sv">Officiella demoinsticksmoduler</summary>
+  <summary xml:lang="sr-Latn">Zvanični probni priključci</summary>
+  <summary xml:lang="sr-Cyrl">Званични пробни прикључци</summary>
+  <summary xml:lang="sl">Uradni demo-vstavki</summary>
+  <summary xml:lang="ru">Официальные демонстрационные плагины</summary>
+  <summary xml:lang="pt-BR">Plug-ins de demonstração oficiais</summary>
+  <summary xml:lang="pt">Complementos de demonstração oficiais</summary>
+  <summary xml:lang="nn">Offisielle demo-programtillegg</summary>
+  <summary xml:lang="nl">Officiële demo plug-ins</summary>
+  <summary xml:lang="lv">Oficiālie demo spraudņi</summary>
+  <summary xml:lang="ka">ოფიციალური სადემონსტრაციო დამატებები</summary>
+  <summary xml:lang="hu">Hivatalos demó bővítmények</summary>
+  <summary xml:lang="fr">Greffons de la démo officielle</summary>
+  <summary xml:lang="eu">Adibideko plugin ofizialak</summary>
+  <summary xml:lang="es">Complementos de demostración oficiales</summary>
+  <summary xml:lang="en-GB">Official Demo Plug-ins</summary>
+  <summary xml:lang="el">Επίσημη επίδειξη προσθέτων</summary>
+  <summary xml:lang="de">Offizielle Beispiel-Plugins</summary>
+  <summary xml:lang="da">Officielle udvidelsesmoduler til demonstration</summary>
+  <summary xml:lang="ca">Connectors de demostració oficials</summary>
+  <summary xml:lang="bg">Официални примерни приставки</summary>
+  <description>
+    <p>
+    This extension provides a set of basic examples to demonstrate
+    how to create your own plug-ins.
+    Each plug-in does the same thing, except it is developed in a
+    different programming language.
+    They all create a GTK dialog with a text view displaying their own code
+    (hence also demonstrating how to package data) and a button which calls
+    a GEGL operation on the active layer.
+    </p>
+    <p xml:lang="zh-Hans-CN">该扩展提供了一套基础示例来演示如何创建您自己的插件。每个插件都是做相同的事情，只不过是用不同的编程语言来开发的。它们全都是创建一个带有显示它们自己代码的文本视窗的 GTK 对话框（因此同时演示了如何打包数据）和一个在活动图层上调用 GEGL 操作的按钮。</p>
+    <p xml:lang="uk">До цього розширення включено набір базових прикладів. Воно є демонстрацією створення ваших власних додатків. Усі додатки виконують ті самі дії, але їх написано різними мовами програмування. Усі додатки створюють діалогове вікно GTK із панеллю для показу власного коду (отже, демонструють спосіб пакування даних) та кнопкою, натискання якої викликає дію GEGL над активним шаром.</p>
+    <p xml:lang="tr">Bu uzantı, kendi eklentilerinizi nasıl oluşturacağınızı göstermek için bir dizi temel örnek sağlar. Başka bir programlama diliyle geliştirilmiş olması dışında her eklenti aynı şeyi yapar. Bunlar, kendi kodlarını görüntüleyen (dolayısıyla verilerin nasıl paketleneceğini de gösteren) bir metin görünümü ve aktif katmanda bir GEGL işlemini çağıran bir düğme ile bir GTK iletişim kutusu oluşturur.</p>
+    <p xml:lang="sv">Denna utökning tillhandahåller en uppsättning enkla exempel för att demonstrera hur du kan skapa dina egna insticksmoduler. Varje insticksmodul gör samma sak, förutom att den har utvecklats i ett annat programmeringsspråk. De skapar alla en GTK-dialogruta med en textvy som visar deras egen kod (och demonstrerar därmed hur man paketerar data) och en knapp som anropar en GEGL-åtgärd på det aktiva lagret.</p>
+    <p xml:lang="sl">Ta razširitev ponuja nabor osnovnih primerov kot demonstracijo, kako ustvarite lastne vstavke. Vsak vstavek naredi isto, le da ima kodo v drugem programskem jeziku. Vsi ustvarijo pogovorno okno GTK s pogledom besedila, ki izpiše lastno kodo (torej demonstrira tudi, kako pakirati podatke), in z gumbom, ki pokliče operacijo GEGL na dejavni plasti.</p>
+    <p xml:lang="pt-BR">Esta extensão providencia um conjunto de exemplos básicos para demonstrar como criar seus próprios plug-ins. Cada plug-in faz a mesma coisa, exceto por serem desenvolvidos em diferentes linguagens de programação. Todos eles criam um diálogo GTK com uma visão de texto mostrando seu próprio código (portanto demonstrando também como empacotar dados) e um botão que chama uma operação da GEGL na camada ativa.</p>
+    <p xml:lang="pt">Esta extensão fornece um conjunto de exemplos básicos para demonstrar como criar complementos. Cada complemento faz a mesma coisa, excepto que é desenvolvido numa linguagem de programação diferente. Todos eles criam um diálogo GTK com uma vista de texto mostrando o seu próprio código (demonstrando assim também como empacotar dados) e um botão que chama uma operação GEGL na camada ativa.</p>
+    <p xml:lang="nn">Denne utvidinga gjev eit sett med grunnleggjande eksempel for å demonstrera korleis du lagar dine eigne programtillegg. Kvart programtillegg gjer det same, bortsett frå at det er utvikla i eit anna programmeringsspråk. Dei lagar alle eit GTK-dialogvindauge med ei tekstvising som viser kodane deira (og såleis også demonstrerar korleis ein pakkar data) og ein knapp som kallar opp ein GEGL-operasjon for det gjeldande laget.</p>
+    <p xml:lang="nl">Deze uitbreiding verschaft een set basisvoorbeelden om te demonstreren hoe uw uw eigen plug-ins kunt maken. Elke plug-in doet hetzelfde, behalve dat die is ontwikkeld in een andere programmeertaal. Ze maken allemaal een GTK-dialoogvenster met een tekstweergave die hun eigen code weergeeft (daarom ook demonstrerend hoe gegevens te verpakken) en een knop die een bewerking van GEGL aanroept op de actieve laag.</p>
+    <p xml:lang="lv">Šis paplašinājums piedāvā komplektu ar vienkāršiem piemēriem, kas demonstrē, kā veidot pašam savus spraudņus. Katrs spraudnis dara vienu un to pašu lietu, bet ir izstrādāts dažādās programmēšanas valodās. Tie visi izveido GTK dialoglodziņu, ar teksta skatu, kurš attēlo pats savu kodu (tādējādi arī demonstrē, kā pakot datus), un pogu, kas izsauc GEGL darbību aktīvajam slānim.</p>
+    <p xml:lang="hu">A kiegészítő néhány alapvető példát biztosít, amely bemutatja, hogyan készítheti el a saját bővítményeit. Minden bővítmény ugyanazt csinálja, de más programozási nyelven készült. Mind létrehoz egy GTK párbeszédablakot egy szöveggel, amely megjeleníti a saját kódját (így azt is bemutatja, hogyan csomagolhat adatokat) és egy gombot, amely meghívja a GEGL műveletet az aktív rétegen.</p>
+    <p xml:lang="eu">Hedapen honek oinarrizko zenbait adibide ematen ditu pluginak nola sortzen diren erakusteko. Plugin guztiek ekintza bera batetzen dute, baina programazio-lengoaia desberdinetan garatuta daude. Denek GTK elkarrizketa-koadro bat sortzen dute eta barruan beren kodea erakusten dute (horrela datuak nola paketatu erakusten dute) eta geruza aktiboan aplikatuko den GEGL eragiketa bati deitzen dion botoi bat sortzen dute.</p>
+    <p xml:lang="es">Esta extensión proporciona un conjunto de ejemplos básicos para demostrar cómo crear sus propios complementos. Cada complemento hace lo mismo, solo que está desarrollado en un lenguaje de programación diferente. Todos ellos crean un diálogo GTK con una vista de texto que muestra su propio código (por tanto, también demuestra cómo empaquetar datos) y un botón que llama a una operación GEGL en la capa activa.</p>
+    <p xml:lang="en-GB">This extension provides a set of basic examples to demonstrate how to create your own plug-ins. Each plug-in does the same thing, except it is developed in a different programming language. They all create a GTK dialogue with a text view displaying their own code (hence also demonstrating how to package data) and a button which calls a GEGL operation on the active layer.</p>
+    <p xml:lang="el">Αυτή η επέκταση παρέχει ένα σύνολο βασικών παραδειγμάτων για να δείξει πώς να δημιουργήσετε το δικό σας πρόσθετο. Κάθε πρόσθετο κάνει το ίδιο πράγμα, εκτός από το ότι αναπτύσσεται σε διαφορετική γλώσσα προγραμματισμού. Όλα δημιουργούν έναν διάλογο GTK με εμφάνιση προβολής κειμένου με τον δικό τους κώδικα (συνεπώς δείχνουν επίσης πώς να πακετάρουν δεδομένα) και ένα πλήκτρο που καλεί μια λειτουργία GEGL στην ενεργή στρώση.</p>
+    <p xml:lang="de">Diese Erweiterung enthält eine Sammlung von einfachen Beispielen, die demonstrieren, wie Sie Ihr eigenes Plugin schreiben können. Jedes Plugin erfüllt denselben Zweck, ist aber jeweils in einer anderen Programmiersprache geschrieben. Sie alle erstellen einen GTK-Dialog mit einer Textansicht, in der der eigene Code dargestellt wird (und somit auch demonstriert wird, wie man Daten bündeln kann) und einen Knopf, der eine GEGL-Operation auf der aktiven Ebene ausführt.</p>
+    <p xml:lang="da">Denne udvidelse indeholder et sæt grundlæggende eksempler, der viser, hvordan du kan lave dine egne udvidelsesmoduler. Hvert udvidelsesmodul gør det samme, bortset fra at de er udviklet i forskellige programmeringssprog. De opretter alle en GTK-dialog med en tekstvisning, der viser deres egen kode (og dermed også demonstrerer, hvordan data pakkes) og en knap, der kalder en GEGL-operation på det aktive lag.</p>
+    <p xml:lang="ca">Aquesta extensió proporciona un conjunt d'exemples bàsics per a demostrar com crear els vostres propis connectors. Cada connector fa el mateix, tret que es desenvolupi en un llenguatge de programació diferent. Tots creen un diàleg GTK amb una visualització de text que mostra el seu propi codi (per tant, també demostra com empaquetar dades) i un botó que crida a una operació GEGL a la capa activa.</p>
+    <p xml:lang="bg">Това разширение предоставя няколко основни примера, как да създадете своя приставка. Всяка приставка прави едно и също, но е реализирана на различен програмен език. Те създават прозорче на GTK с текстов изглед с техния изходен код, за да демонстрират как се пакетират данни. Прозорчето има и бутон — при натискането му се изпълнява операция на GEGL върху активния слой.</p>
+  </description>
+  <url type="homepage">https://gimp.org</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <releases>
+    <release version="1.0.0" date="2020-10-08"/>
+  </releases>
+  <requires>
+    <id version="2.99.0" compare="ge">org.gimp.GIMP</id>
+  </requires>
+  <custom>
+    <value key="GIMP::plug-in-path">goat-exercise-c:goat-exercise-py3.py</value>
+  </custom>
+</component>

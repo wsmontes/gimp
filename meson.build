@@ -218,7 +218,30 @@ osx_ldflags = []
 if platform_osx
   add_languages('objc')
   osx_ldflags += ['-Wl,-framework,Foundation', '-Wl,-framework,AppKit', '-ObjC']
+  
+  # Check for Metal framework on macOS
+  objc = meson.get_compiler('objc')
+  have_metal = objc.links('''
+    #import <Metal/Metal.h>
+    int main() {
+      id<MTLDevice> device = MTLCreateSystemDefaultDevice();
+      return device ? 0 : 1;
+    }
+    ''',
+    args: ['-framework', 'Metal'],
+    name: 'Metal framework')
+  
+  if have_metal
+    conf.set('HAVE_METAL', 1)
+    osx_ldflags += ['-Wl,-framework,Metal', '-Wl,-framework,MetalPerformanceShaders']
+    message('Metal GPU acceleration: enabled')
+  else
+    message('Metal GPU acceleration: disabled')
+  endif
+  
   add_project_link_arguments(osx_ldflags, language : ['objc', 'c'])
+else
+  have_metal = false
 endif
 
 if cc.get_id() == 'gcc' and cc.version() == '7.2.0'
@@ -463,7 +486,7 @@ gegl              = dependency('gegl-0.4',           version: '>='+gegl_minver)
 exiv2_minver      = '0.27.4'
 exiv2             = dependency('exiv2',              version: '>='+exiv2_minver)
 gexiv2_minver     = '0.14.0'
-gexiv2_maxver     = '0.15.0'
+gexiv2_maxver     = '0.17.0'
 gexiv2            = dependency('gexiv2',             version: ['>='+gexiv2_minver, '<'+gexiv2_maxver])
 
 gio               = dependency('gio-2.0')

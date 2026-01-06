@@ -37,6 +37,10 @@
 #include "gimp-babl.h"
 #include "gimp-gegl.h"
 
+#ifdef HAVE_METAL
+#include "gimp-gegl-loops-metal.h"
+#endif
+
 #include <operation/gegl-operation.h>
 
 
@@ -97,12 +101,28 @@ gimp_gegl_init (Gimp *gimp)
   gimp_babl_init ();
 
   gimp_operations_init (gimp);
+
+#ifdef HAVE_METAL
+  /* Initialize Metal GPU acceleration */
+  if (gimp_gegl_metal_init ())
+    {
+      g_message ("Metal GPU acceleration initialized successfully");
+    }
+  else
+    {
+      g_message ("Metal GPU acceleration not available, using CPU fallback");
+    }
+#endif
 }
 
 void
 gimp_gegl_exit (Gimp *gimp)
 {
   g_return_if_fail (GIMP_IS_GIMP (gimp));
+
+#ifdef HAVE_METAL
+  gimp_gegl_metal_shutdown ();
+#endif
 
   gimp_operations_exit (gimp);
   gimp_parallel_exit (gimp);

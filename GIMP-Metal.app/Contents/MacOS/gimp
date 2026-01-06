@@ -1,0 +1,8 @@
+#!/bin/bash
+export PATH="/opt/homebrew/bin:$PATH"
+export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
+export GIMP3_DATADIR="/opt/homebrew/share/gimp/3.0"
+export GIMP3_LOCALEDIR="/opt/homebrew/share/locale"
+export GIMP3_PLUGINDIR="/opt/homebrew/lib/gimp/3.0"
+export GIMP3_SYSCONFDIR="/opt/homebrew/etc/gimp/3.0"
+exec /opt/homebrew/bin/gimp-3.2 "$@"

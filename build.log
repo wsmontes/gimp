@@ -1,0 +1,1532 @@
+ninja: Entering directory `_build'
+[1/2672] Compiling C object libgimpcolor/libgimpcolor-3.0.0.dylib.p/gimpbilinear.c.o
+[2/2672] Compiling C object libgimpcolor/libgimpcolor-3.0.0.dylib.p/gimpadaptivesupersample.c.o
+[3/2672] Compiling C object libgimpcolor/libgimpcolor-3.0.0.dylib.p/gimpcairo.c.o
+[4/2672] Compiling C object libgimpcolor/libgimpcolor-3.0.0.dylib.p/gimpcolormanaged.c.o
+[5/2672] Compiling C object libgimpcolor/libgimpcolor-3.0.0.dylib.p/gimppixbuf.c.o
+[6/2672] Compiling C object libgimpmath/libgimpmath-3.0.0.dylib.p/gimpmatrix.c.o
+[7/2672] Generating libgimpbase/stamp-gimpbaseenums.h with a custom command (wrapped by meson because command contains newlines)
+[8/2672] Generating libgimpbase/stamp-gimpcompatenums.h with a custom command (wrapped by meson because command contains newlines)
+[9/2672] Compiling C object libgimpcolor/libgimpcolor-3.0.0.dylib.p/gimpcolor-parse.c.o
+[10/2672] Generating pdb/enums.pl with a custom command (wrapped by meson to set env)
+[11/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpbasetypes.c.o
+[12/2672] Compiling C object libgimpmath/libgimpmath-3.0.0.dylib.p/gimpvector.c.o
+[13/2672] Compiling C object libgimpcolor/libgimpcolor-3.0.0.dylib.p/gimpcolortransform.c.o
+[14/2672] Generating pdb/groups.pl with a custom command (wrapped by meson because command contains newlines, to capture output)
+[15/2672] Generating libgimpconfig/stamp-gimpconfigenums.h with a custom command (wrapped by meson because command contains newlines)
+[16/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpchecks.c.o
+[17/2672] Compiling C object gimp-data/tools/colorsvg2png.p/colorsvg2png.c.o
+[18/2672] Compiling C object libgimpcolor/libgimpcolor-3.0.0.dylib.p/gimpcolor.c.o
+[19/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpcpuaccel.c.o
+[20/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpmemsize.c.o
+[21/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpexportoptions.c.o
+[22/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimprectangle.c.o
+[23/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpparasiteio.c.o
+[24/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpparasite.c.o
+[25/2672] Compiling C object libgimpmodule/libgimpmodule-3.0.0.dylib.p/gimpmoduledb.c.o
+[26/2672] Compiling C object libgimpcolor/libgimpcolor-3.0.0.dylib.p/gimpcolorprofile.c.o
+[27/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpchoice.c.o
+[28/2672] Compiling C object libgimpmodule/libgimpmodule-3.0.0.dylib.p/gimpmodule.c.o
+[29/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpsignal.c.o
+[30/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpbase-private.c.o
+[31/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpunit.c.o
+[32/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpreloc.c.o
+[33/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpcompatenums.c.o
+[34/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpwire.c.o
+[35/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpvaluearray.c.o
+[36/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpbaseenums.c.o
+[37/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpconfig-error.c.o
+[38/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpparamspecs.c.o
+[39/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpmetadata.c.o
+../libgimpbase/gimpmetadata.c:197:9: warning: 'gexiv2_metadata_try_register_xmp_namespace' is deprecated: Use 'gexiv2_metadata_register_xmp_namespace' instead [-Wdeprecated-declarations]
+  197 |   if (! gexiv2_metadata_try_register_xmp_namespace ("http://ns.adobe.com/DICOM/",
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:1229:1: note: 'gexiv2_metadata_try_register_xmp_namespace' has been explicitly marked deprecated here
+ 1229 | G_DEPRECATED_FOR(gexiv2_metadata_register_xmp_namespace)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:204:9: warning: 'gexiv2_metadata_try_register_xmp_namespace' is deprecated: Use 'gexiv2_metadata_register_xmp_namespace' instead [-Wdeprecated-declarations]
+  204 |   if (! gexiv2_metadata_try_register_xmp_namespace ("http://darktable.sf.net/",
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:1229:1: note: 'gexiv2_metadata_try_register_xmp_namespace' has been explicitly marked deprecated here
+ 1229 | G_DEPRECATED_FOR(gexiv2_metadata_register_xmp_namespace)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:212:9: warning: 'gexiv2_metadata_try_register_xmp_namespace' is deprecated: Use 'gexiv2_metadata_register_xmp_namespace' instead [-Wdeprecated-declarations]
+  212 |   if (! gexiv2_metadata_try_register_xmp_namespace ("http://www.gimp.org/xmp/",
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:1229:1: note: 'gexiv2_metadata_try_register_xmp_namespace' has been explicitly marked deprecated here
+ 1229 | G_DEPRECATED_FOR(gexiv2_metadata_register_xmp_namespace)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:336:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  336 |   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:342:9: warning: 'gexiv2_metadata_try_get_tag_interpreted_string' is deprecated: Use 'gexiv2_metadata_get_tag_interpreted_string' instead [-Wdeprecated-declarations]
+  342 |   did = gexiv2_metadata_try_get_tag_interpreted_string (GEXIV2_METADATA (metadata),
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:718:1: note: 'gexiv2_metadata_try_get_tag_interpreted_string' has been explicitly marked deprecated here
+  718 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_interpreted_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:351:7: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  351 |       gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:358:10: warning: 'gexiv2_metadata_try_get_tag_interpreted_string' is deprecated: Use 'gexiv2_metadata_get_tag_interpreted_string' instead [-Wdeprecated-declarations]
+  358 |   odid = gexiv2_metadata_try_get_tag_interpreted_string (GEXIV2_METADATA (metadata),
+      |          ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:718:1: note: 'gexiv2_metadata_try_get_tag_interpreted_string' has been explicitly marked deprecated here
+  718 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_interpreted_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:367:7: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  367 |       gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:375:3: warning: 'gexiv2_metadata_try_set_xmp_tag_struct' is deprecated: Use 'gexiv2_metadata_set_xmp_tag_struct' instead [-Wdeprecated-declarations]
+  375 |   gexiv2_metadata_try_set_xmp_tag_struct (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:683:1: note: 'gexiv2_metadata_try_set_xmp_tag_struct' has been explicitly marked deprecated here
+  683 | G_DEPRECATED_FOR(gexiv2_metadata_set_xmp_tag_struct)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:390:15: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+  390 |           if (gexiv2_metadata_try_has_tag (GEXIV2_METADATA (metadata),
+      |               ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:410:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  410 |   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:429:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  429 |   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:458:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  458 |   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:473:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  473 |   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:502:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  502 |   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:713:20: warning: 'gexiv2_metadata_try_get_tag_multiple' is deprecated: Use 'gexiv2_metadata_get_tag_multiple' instead [-Wdeprecated-declarations]
+  713 |           values = gexiv2_metadata_try_get_tag_multiple (g2_metadata,
+      |                    ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:815:1: note: 'gexiv2_metadata_try_get_tag_multiple' has been explicitly marked deprecated here
+  815 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_multiple)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:749:19: warning: 'gexiv2_metadata_try_set_tag_multiple' is deprecated: Use 'gexiv2_metadata_set_tag_multiple' instead [-Wdeprecated-declarations]
+  749 |                   gexiv2_metadata_try_set_tag_multiple (g2_metadata,
+      |                   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:836:1: note: 'gexiv2_metadata_try_set_tag_multiple' has been explicitly marked deprecated here
+  836 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_multiple)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:764:15: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  764 |               gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (g2_metadata),
+      |               ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:781:7: warning: 'gexiv2_metadata_try_register_xmp_namespace' is deprecated: Use 'gexiv2_metadata_register_xmp_namespace' instead [-Wdeprecated-declarations]
+  781 |       gexiv2_metadata_try_register_xmp_namespace (parse_data->name,
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:1229:1: note: 'gexiv2_metadata_try_register_xmp_namespace' has been explicitly marked deprecated here
+ 1229 | G_DEPRECATED_FOR(gexiv2_metadata_register_xmp_namespace)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:901:23: warning: 'gexiv2_metadata_try_get_xmp_namespace_for_tag' is deprecated: Use 'gexiv2_metadata_try_get_xmp_namespace_for_tag' instead [-Wdeprecated-declarations]
+  901 |       namespace_url = gexiv2_metadata_try_get_xmp_namespace_for_tag (prefix, &error);
+      |                       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:1311:1: note: 'gexiv2_metadata_try_get_xmp_namespace_for_tag' has been explicitly marked deprecated here
+ 1311 | G_DEPRECATED_FOR(gexiv2_metadata_try_get_xmp_namespace_for_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:922:17: warning: 'gexiv2_metadata_try_register_xmp_namespace' is deprecated: Use 'gexiv2_metadata_register_xmp_namespace' instead [-Wdeprecated-declarations]
+  922 |           if (! gexiv2_metadata_try_register_xmp_namespace (namespace_url,
+      |                 ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:1229:1: note: 'gexiv2_metadata_try_register_xmp_namespace' has been explicitly marked deprecated here
+ 1229 | G_DEPRECATED_FOR(gexiv2_metadata_register_xmp_namespace)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1047:19: warning: 'gexiv2_metadata_try_get_tag_string' is deprecated: Use 'gexiv2_metadata_get_tag_string' instead [-Wdeprecated-declarations]
+ 1047 |           value = gexiv2_metadata_try_get_tag_string (GEXIV2_METADATA (metadata),
+      |                   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:602:1: note: 'gexiv2_metadata_try_get_tag_string' has been explicitly marked deprecated here
+  602 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1080:28: warning: 'gexiv2_metadata_try_get_tag_type' is deprecated: Use 'gexiv2_metadata_get_tag_type' instead [-Wdeprecated-declarations]
+ 1080 |           if (! g_strcmp0 (gexiv2_metadata_try_get_tag_type (xmp_data[i], NULL), "XmpText"))
+      |                            ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:459:1: note: 'gexiv2_metadata_try_get_tag_type' has been explicitly marked deprecated here
+  459 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_type)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1082:23: warning: 'gexiv2_metadata_try_get_tag_string' is deprecated: Use 'gexiv2_metadata_get_tag_string' instead [-Wdeprecated-declarations]
+ 1082 |               value = gexiv2_metadata_try_get_tag_string (GEXIV2_METADATA (metadata),
+      |                       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:602:1: note: 'gexiv2_metadata_try_get_tag_string' has been explicitly marked deprecated here
+  602 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1102:24: warning: 'gexiv2_metadata_try_get_tag_multiple' is deprecated: Use 'gexiv2_metadata_get_tag_multiple' instead [-Wdeprecated-declarations]
+ 1102 |               values = gexiv2_metadata_try_get_tag_multiple (GEXIV2_METADATA (metadata),
+      |                        ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:815:1: note: 'gexiv2_metadata_try_get_tag_multiple' has been explicitly marked deprecated here
+  815 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_multiple)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1165:20: warning: 'gexiv2_metadata_try_get_tag_multiple' is deprecated: Use 'gexiv2_metadata_get_tag_multiple' instead [-Wdeprecated-declarations]
+ 1165 |           values = gexiv2_metadata_try_get_tag_multiple (GEXIV2_METADATA (metadata),
+      |                    ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:815:1: note: 'gexiv2_metadata_try_get_tag_multiple' has been explicitly marked deprecated here
+  815 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_multiple)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1506:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1506 |   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1508:7: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1508 |   if (gexiv2_metadata_try_has_tag (GEXIV2_METADATA (metadata),
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1511:7: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1511 |       gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1517:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1517 |   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1519:7: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1519 |   if (gexiv2_metadata_try_has_tag (GEXIV2_METADATA (metadata),
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1522:7: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1522 |       gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1547:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1547 |   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1576:7: warning: 'gexiv2_metadata_try_get_exif_tag_rational' is deprecated: Use 'gexiv2_metadata_get_exif_tag_rational' instead [-Wdeprecated-declarations]
+ 1576 |   if (gexiv2_metadata_try_get_exif_tag_rational (GEXIV2_METADATA (metadata),
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:962:1: note: 'gexiv2_metadata_try_get_exif_tag_rational' has been explicitly marked deprecated here
+  962 | G_DEPRECATED_FOR(gexiv2_metadata_get_exif_tag_rational)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1579:7: warning: 'gexiv2_metadata_try_get_exif_tag_rational' is deprecated: Use 'gexiv2_metadata_get_exif_tag_rational' instead [-Wdeprecated-declarations]
+ 1579 |       gexiv2_metadata_try_get_exif_tag_rational (GEXIV2_METADATA (metadata),
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:962:1: note: 'gexiv2_metadata_try_get_exif_tag_rational' has been explicitly marked deprecated here
+  962 | G_DEPRECATED_FOR(gexiv2_metadata_get_exif_tag_rational)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1586:12: warning: 'gexiv2_metadata_try_get_tag_string' is deprecated: Use 'gexiv2_metadata_get_tag_string' instead [-Wdeprecated-declarations]
+ 1586 |       un = gexiv2_metadata_try_get_tag_string (GEXIV2_METADATA (metadata),
+      |            ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:602:1: note: 'gexiv2_metadata_try_get_tag_string' has been explicitly marked deprecated here
+  602 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1676:3: warning: 'gexiv2_metadata_try_set_exif_tag_rational' is deprecated: Use 'gexiv2_metadata_set_exif_tag_rational' instead [-Wdeprecated-declarations]
+ 1676 |   gexiv2_metadata_try_set_exif_tag_rational (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:981:1: note: 'gexiv2_metadata_try_set_exif_tag_rational' has been explicitly marked deprecated here
+  981 | G_DEPRECATED_FOR(gexiv2_metadata_set_exif_tag_rational)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1680:3: warning: 'gexiv2_metadata_try_set_exif_tag_rational' is deprecated: Use 'gexiv2_metadata_set_exif_tag_rational' instead [-Wdeprecated-declarations]
+ 1680 |   gexiv2_metadata_try_set_exif_tag_rational (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:981:1: note: 'gexiv2_metadata_try_set_exif_tag_rational' has been explicitly marked deprecated here
+  981 | G_DEPRECATED_FOR(gexiv2_metadata_set_exif_tag_rational)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1685:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1685 |   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1715:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1715 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1722:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1722 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1734:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1734 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1737:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1737 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1740:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1740 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1743:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1743 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1750:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1750 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1753:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1753 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1756:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1756 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1765:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1765 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1768:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1768 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1771:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1771 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1774:3: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1774 |   gexiv2_metadata_try_set_tag_string (g2metadata,
+      |   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1803:7: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1803 |   if (gexiv2_metadata_try_has_tag (GEXIV2_METADATA (metadata),
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1806:17: warning: 'gexiv2_metadata_try_get_tag_long' is deprecated: Use 'gexiv2_metadata_get_tag_long' instead [-Wdeprecated-declarations]
+ 1806 |       exif_cs = gexiv2_metadata_try_get_tag_long (GEXIV2_METADATA (metadata),
+      |                 ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:752:1: note: 'gexiv2_metadata_try_get_tag_long' has been explicitly marked deprecated here
+  752 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1809:12: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1809 |   else if (gexiv2_metadata_try_has_tag (GEXIV2_METADATA (metadata),
+      |            ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1812:17: warning: 'gexiv2_metadata_try_get_tag_long' is deprecated: Use 'gexiv2_metadata_get_tag_long' instead [-Wdeprecated-declarations]
+ 1812 |       exif_cs = gexiv2_metadata_try_get_tag_long (GEXIV2_METADATA (metadata),
+      |                 ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:752:1: note: 'gexiv2_metadata_try_get_tag_long' has been explicitly marked deprecated here
+  752 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1830:23: warning: 'gexiv2_metadata_try_get_tag_string' is deprecated: Use 'gexiv2_metadata_get_tag_string' instead [-Wdeprecated-declarations]
+ 1830 |           iop_index = gexiv2_metadata_try_get_tag_string (GEXIV2_METADATA (metadata),
+      |                       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:602:1: note: 'gexiv2_metadata_try_get_tag_string' has been explicitly marked deprecated here
+  602 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1849:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1849 |       if (gexiv2_metadata_try_has_tag (GEXIV2_METADATA (metadata),
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1854:22: warning: 'gexiv2_metadata_try_get_tag_long' is deprecated: Use 'gexiv2_metadata_get_tag_long' instead [-Wdeprecated-declarations]
+ 1854 |           nikon_cs = gexiv2_metadata_try_get_tag_long (GEXIV2_METADATA (metadata),
+      |                      ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:752:1: note: 'gexiv2_metadata_try_get_tag_long' has been explicitly marked deprecated here
+  752 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1867:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1867 |       if (gexiv2_metadata_try_has_tag (GEXIV2_METADATA (metadata),
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1872:22: warning: 'gexiv2_metadata_try_get_tag_long' is deprecated: Use 'gexiv2_metadata_get_tag_long' instead [-Wdeprecated-declarations]
+ 1872 |           canon_cs = gexiv2_metadata_try_get_tag_long (GEXIV2_METADATA (metadata),
+      |                      ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:752:1: note: 'gexiv2_metadata_try_get_tag_long' has been explicitly marked deprecated here
+  752 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1912:7: warning: 'gexiv2_metadata_try_clear_tag' is deprecated: Use 'gexiv2_metadata_clear_tag' instead [-Wdeprecated-declarations]
+ 1912 |       gexiv2_metadata_try_clear_tag (g2metadata, "Exif.Photo.ColorSpace", NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:331:1: note: 'gexiv2_metadata_try_clear_tag' has been explicitly marked deprecated here
+  331 | G_DEPRECATED_FOR(gexiv2_metadata_clear_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1913:7: warning: 'gexiv2_metadata_try_clear_tag' is deprecated: Use 'gexiv2_metadata_clear_tag' instead [-Wdeprecated-declarations]
+ 1913 |       gexiv2_metadata_try_clear_tag (g2metadata, "Xmp.exif.ColorSpace", NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:331:1: note: 'gexiv2_metadata_try_clear_tag' has been explicitly marked deprecated here
+  331 | G_DEPRECATED_FOR(gexiv2_metadata_clear_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1914:7: warning: 'gexiv2_metadata_try_clear_tag' is deprecated: Use 'gexiv2_metadata_clear_tag' instead [-Wdeprecated-declarations]
+ 1914 |       gexiv2_metadata_try_clear_tag (g2metadata, "Exif.Iop.InteroperabilityIndex", NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:331:1: note: 'gexiv2_metadata_try_clear_tag' has been explicitly marked deprecated here
+  331 | G_DEPRECATED_FOR(gexiv2_metadata_clear_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1915:7: warning: 'gexiv2_metadata_try_clear_tag' is deprecated: Use 'gexiv2_metadata_clear_tag' instead [-Wdeprecated-declarations]
+ 1915 |       gexiv2_metadata_try_clear_tag (g2metadata, "Exif.Nikon3.ColorSpace", NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:331:1: note: 'gexiv2_metadata_try_clear_tag' has been explicitly marked deprecated here
+  331 | G_DEPRECATED_FOR(gexiv2_metadata_clear_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1916:7: warning: 'gexiv2_metadata_try_clear_tag' is deprecated: Use 'gexiv2_metadata_clear_tag' instead [-Wdeprecated-declarations]
+ 1916 |       gexiv2_metadata_try_clear_tag (g2metadata, "Exif.Canon.ColorSpace", NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:331:1: note: 'gexiv2_metadata_try_clear_tag' has been explicitly marked deprecated here
+  331 | G_DEPRECATED_FOR(gexiv2_metadata_clear_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1920:7: warning: 'gexiv2_metadata_try_set_tag_long' is deprecated: Use 'gexiv2_metadata_set_tag_long' instead [-Wdeprecated-declarations]
+ 1920 |       gexiv2_metadata_try_set_tag_long (g2metadata, "Exif.Photo.ColorSpace", 0xffff, NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:782:1: note: 'gexiv2_metadata_try_set_tag_long' has been explicitly marked deprecated here
+  782 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1921:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1921 |       if (gexiv2_metadata_try_has_tag (g2metadata, "Xmp.exif.ColorSpace", NULL))
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1922:9: warning: 'gexiv2_metadata_try_set_tag_long' is deprecated: Use 'gexiv2_metadata_set_tag_long' instead [-Wdeprecated-declarations]
+ 1922 |         gexiv2_metadata_try_set_tag_long (g2metadata, "Xmp.exif.ColorSpace", 0xffff, NULL);
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:782:1: note: 'gexiv2_metadata_try_set_tag_long' has been explicitly marked deprecated here
+  782 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1923:7: warning: 'gexiv2_metadata_try_clear_tag' is deprecated: Use 'gexiv2_metadata_clear_tag' instead [-Wdeprecated-declarations]
+ 1923 |       gexiv2_metadata_try_clear_tag (g2metadata, "Exif.Iop.InteroperabilityIndex", NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:331:1: note: 'gexiv2_metadata_try_clear_tag' has been explicitly marked deprecated here
+  331 | G_DEPRECATED_FOR(gexiv2_metadata_clear_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1924:7: warning: 'gexiv2_metadata_try_clear_tag' is deprecated: Use 'gexiv2_metadata_clear_tag' instead [-Wdeprecated-declarations]
+ 1924 |       gexiv2_metadata_try_clear_tag (g2metadata, "Exif.Nikon3.ColorSpace", NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:331:1: note: 'gexiv2_metadata_try_clear_tag' has been explicitly marked deprecated here
+  331 | G_DEPRECATED_FOR(gexiv2_metadata_clear_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1925:7: warning: 'gexiv2_metadata_try_clear_tag' is deprecated: Use 'gexiv2_metadata_clear_tag' instead [-Wdeprecated-declarations]
+ 1925 |       gexiv2_metadata_try_clear_tag (g2metadata, "Exif.Canon.ColorSpace", NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:331:1: note: 'gexiv2_metadata_try_clear_tag' has been explicitly marked deprecated here
+  331 | G_DEPRECATED_FOR(gexiv2_metadata_clear_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1929:7: warning: 'gexiv2_metadata_try_set_tag_long' is deprecated: Use 'gexiv2_metadata_set_tag_long' instead [-Wdeprecated-declarations]
+ 1929 |       gexiv2_metadata_try_set_tag_long (g2metadata, "Exif.Photo.ColorSpace", 0x01, NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:782:1: note: 'gexiv2_metadata_try_set_tag_long' has been explicitly marked deprecated here
+  782 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1931:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1931 |       if (gexiv2_metadata_try_has_tag (g2metadata, "Xmp.exif.ColorSpace", NULL))
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1932:9: warning: 'gexiv2_metadata_try_set_tag_long' is deprecated: Use 'gexiv2_metadata_set_tag_long' instead [-Wdeprecated-declarations]
+ 1932 |         gexiv2_metadata_try_set_tag_long (g2metadata, "Xmp.exif.ColorSpace", 0x01, NULL);
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:782:1: note: 'gexiv2_metadata_try_set_tag_long' has been explicitly marked deprecated here
+  782 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1934:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1934 |       if (gexiv2_metadata_try_has_tag (g2metadata, "Exif.Iop.InteroperabilityIndex", NULL))
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1935:9: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1935 |         gexiv2_metadata_try_set_tag_string (g2metadata,
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1939:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1939 |       if (gexiv2_metadata_try_has_tag (g2metadata, "Exif.Nikon3.ColorSpace", NULL))
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1940:9: warning: 'gexiv2_metadata_try_set_tag_long' is deprecated: Use 'gexiv2_metadata_set_tag_long' instead [-Wdeprecated-declarations]
+ 1940 |         gexiv2_metadata_try_set_tag_long (g2metadata, "Exif.Nikon3.ColorSpace", 0x01, NULL);
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:782:1: note: 'gexiv2_metadata_try_set_tag_long' has been explicitly marked deprecated here
+  782 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1942:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1942 |       if (gexiv2_metadata_try_has_tag (g2metadata, "Exif.Canon.ColorSpace", NULL))
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1943:9: warning: 'gexiv2_metadata_try_set_tag_long' is deprecated: Use 'gexiv2_metadata_set_tag_long' instead [-Wdeprecated-declarations]
+ 1943 |         gexiv2_metadata_try_set_tag_long (g2metadata, "Exif.Canon.ColorSpace", 0x01, NULL);
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:782:1: note: 'gexiv2_metadata_try_set_tag_long' has been explicitly marked deprecated here
+  782 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1947:7: warning: 'gexiv2_metadata_try_set_tag_long' is deprecated: Use 'gexiv2_metadata_set_tag_long' instead [-Wdeprecated-declarations]
+ 1947 |       gexiv2_metadata_try_set_tag_long (g2metadata, "Exif.Photo.ColorSpace", 0x02, NULL);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:782:1: note: 'gexiv2_metadata_try_set_tag_long' has been explicitly marked deprecated here
+  782 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1949:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1949 |       if (gexiv2_metadata_try_has_tag (g2metadata, "Xmp.exif.ColorSpace", NULL))
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1950:9: warning: 'gexiv2_metadata_try_set_tag_long' is deprecated: Use 'gexiv2_metadata_set_tag_long' instead [-Wdeprecated-declarations]
+ 1950 |         gexiv2_metadata_try_set_tag_long (g2metadata, "Xmp.exif.ColorSpace", 0x02, NULL);
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:782:1: note: 'gexiv2_metadata_try_set_tag_long' has been explicitly marked deprecated here
+  782 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1952:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1952 |       if (gexiv2_metadata_try_has_tag (g2metadata, "Exif.Iop.InteroperabilityIndex", NULL))
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1953:9: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1953 |         gexiv2_metadata_try_set_tag_string (g2metadata,
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1957:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1957 |       if (gexiv2_metadata_try_has_tag (g2metadata, "Exif.Nikon3.ColorSpace", NULL))
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1958:9: warning: 'gexiv2_metadata_try_set_tag_long' is deprecated: Use 'gexiv2_metadata_set_tag_long' instead [-Wdeprecated-declarations]
+ 1958 |         gexiv2_metadata_try_set_tag_long (g2metadata, "Exif.Nikon3.ColorSpace", 0x02, NULL);
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:782:1: note: 'gexiv2_metadata_try_set_tag_long' has been explicitly marked deprecated here
+  782 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1960:11: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+ 1960 |       if (gexiv2_metadata_try_has_tag (g2metadata, "Exif.Canon.ColorSpace", NULL))
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:1961:9: warning: 'gexiv2_metadata_try_set_tag_long' is deprecated: Use 'gexiv2_metadata_set_tag_long' instead [-Wdeprecated-declarations]
+ 1961 |         gexiv2_metadata_try_set_tag_long (g2metadata, "Exif.Canon.ColorSpace", 0x02, NULL);
+      |         ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:782:1: note: 'gexiv2_metadata_try_set_tag_long' has been explicitly marked deprecated here
+  782 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_long)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:2040:12: warning: 'gexiv2_metadata_try_get_tag_multiple' is deprecated: Use 'gexiv2_metadata_get_tag_multiple' instead [-Wdeprecated-declarations]
+ 2040 |   values = gexiv2_metadata_try_get_tag_multiple (src, tag, &error);
+      |            ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:815:1: note: 'gexiv2_metadata_try_get_tag_multiple' has been explicitly marked deprecated here
+  815 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_multiple)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:2050:7: warning: 'gexiv2_metadata_try_set_tag_multiple' is deprecated: Use 'gexiv2_metadata_set_tag_multiple' instead [-Wdeprecated-declarations]
+ 2050 |       gexiv2_metadata_try_set_tag_multiple (dest, tag, (const gchar **) values, &error);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:836:1: note: 'gexiv2_metadata_try_set_tag_multiple' has been explicitly marked deprecated here
+  836 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_multiple)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:2062:22: warning: 'gexiv2_metadata_try_get_tag_string' is deprecated: Use 'gexiv2_metadata_get_tag_string' instead [-Wdeprecated-declarations]
+ 2062 |       gchar *value = gexiv2_metadata_try_get_tag_string (src, tag, &error);
+      |                      ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:602:1: note: 'gexiv2_metadata_try_get_tag_string' has been explicitly marked deprecated here
+  602 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimpbase/gimpmetadata.c:2066:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 2066 |           gexiv2_metadata_try_set_tag_string (dest, tag, value, &error);
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+94 warnings generated.
+[40/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpconfig-params.c.o
+[41/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpconfig-path.c.o
+[42/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpconfig-register.c.o
+[43/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpcolorconfig.c.o
+[44/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpprotocol.c.o
+[45/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpconfig-deserialize.c.o
+[46/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpconfig-iface.c.o
+[47/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpconfig-serialize.c.o
+[48/2672] Linking target gimp-data/tools/colorsvg2png
+[49/2672] Generating glib marshaller header libgimpwidgets/gimpwidgetsmarshal_h
+[50/2672] Generating pdb/gimpenums.h with a custom command (wrapped by meson to set env)
+[51/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpconfig-utils.c.o
+[52/2672] Generating gimp-data/cursors/gimp-color-picker-cursors_c with a custom command
+[53/2672] Generating gimp-data/cursors/gimp-color-picker-cursors_h with a custom command
+[54/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpconfigenums.c.o
+[55/2672] Generating gimp-data/icons/Default/64/icon-wilber-eek with a custom command
+[56/2672] Generating glib marshaller source libgimpwidgets/gimpwidgetsmarshal_c
+[57/2672] Generating glib marshaller header libgimp/gimpuimarshal_h
+[58/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpconfigwriter.c.o
+[59/2672] Generating gimp-data/icons/Default/gimp-icon-pixbufs_h with a custom command
+[60/2672] Generating gimp-data/icons/Default/gimp-icon-pixbufs_c with a custom command
+[61/2672] Generating libgimp/gimpenums.c.notail with a custom command (wrapped by meson because command contains newlines, to capture output)
+[62/2672] Generating glib marshaller source libgimp/gimpuimarshal_c
+[63/2672] Generating libgimpwidgets/stamp-gimpwidgetsenums.h with a custom command (wrapped by meson because command contains newlines)
+[64/2672] Compiling C object plug-ins/file-bmp/generate-huffman.p/generate-huffman.c.o
+[65/2672] Compiling C object libgimpconfig/libgimpconfig-3.0.0.dylib.p/gimpscanner.c.o
+[66/2672] Compiling C object plug-ins/script-fu/libscriptfu/tinyscheme/libscriptfu-tinyscheme.a.p/error-port.c.o
+[67/2672] Compiling C object plug-ins/script-fu/libscriptfu/tinyscheme/libscriptfu-tinyscheme.a.p/string-port.c.o
+[68/2672] Generating libgimp/gimpenums.c with a custom command (wrapped by meson to capture output)
+[69/2672] Generating gimp-data/icons/Default/64/icon-dialog-question with a custom command
+[70/2672] Compiling C object plug-ins/script-fu/libscriptfu/ftx/libscriptfu-ftx.a.p/ftx.c.o
+[71/2672] Linking target plug-ins/file-bmp/generate-huffman
+[72/2672] Generating libgimpthumb/gimpthumb-enums.c with a custom command (wrapped by meson because command contains newlines, to capture output)
+[73/2672] Generating git-version.h.in.1 with a custom command
+[74/2672] Linking static target plug-ins/script-fu/libscriptfu/ftx/libscriptfu-ftx.a
+[75/2672] Compiling C object tools/gen-languages.p/.._app_config_gimpxmlparser.c.o
+[76/2672] Compiling C object tools/gen-languages.p/gen-languages.c.o
+[77/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimpenv.c.o
+[78/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-regex.c.o
+[79/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/scheme-marshal-return.c.o
+[80/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-utils.c.o
+[81/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/scheme-marshal.c.o
+[82/2672] Compiling C object libgimpbase/libgimpbase-3.0.0.dylib.p/gimputils.c.o
+[83/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-compat.c.o
+[84/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-errors.c.o
+[85/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-scripts.c.o
+[86/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-script.c.o
+[87/2672] Generating pdb/stamp-pdbgen.h with a custom command (wrapped by meson to set env)
+[88/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-lib.c.o
+[89/2672] Linking target libgimpbase/libgimpbase-3.0.0.dylib
+[90/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-proc-factory.c.o
+[91/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/meson-generated_.._gimpenums.c.o
+[92/2672] Generating symbol file libgimpbase/libgimpbase-3.0.0.dylib.p/libgimpbase-3.0.0.dylib.symbols
+[93/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-register.c.o
+[94/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimp.c.o
+[95/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-arg.c.o
+[96/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpbatchprocedure.c.o
+[97/2672] Linking target libgimpmath/libgimpmath-3.0.0.dylib
+[98/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/scheme-wrapper.c.o
+[99/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpbrush.c.o
+[100/2672] Linking target libgimpcolor/libgimpcolor-3.0.0.dylib
+[101/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpchannel.c.o
+[102/2672] Generating symbol file libgimpmath/libgimpmath-3.0.0.dylib.p/libgimpmath-3.0.0.dylib.symbols
+[103/2672] Generating symbol file libgimpcolor/libgimpcolor-3.0.0.dylib.p/libgimpcolor-3.0.0.dylib.symbols
+[104/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdisplay.c.o
+[105/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdrawable.c.o
+[106/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdrawablefilterconfig.c.o
+[107/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdrawablefilter.c.o
+[108/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpexportoptions.c.o
+[109/2672] Linking target libgimpconfig/libgimpconfig-3.0.0.dylib
+[110/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpgimprc.c.o
+[111/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpfont.c.o
+[112/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpfileprocedure.c.o
+[113/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpgradient.c.o
+[114/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpgrouplayer.c.o
+[115/2672] Generating symbol file libgimpconfig/libgimpconfig-3.0.0.dylib.p/libgimpconfig-3.0.0.dylib.symbols
+[116/2672] Compiling C object plug-ins/script-fu/libscriptfu/tinyscheme/libscriptfu-tinyscheme.a.p/scheme.c.o
+[117/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpimagecolorprofile.c.o
+[118/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpimagemetadata.c.o
+../libgimp/gimpimagemetadata.c:70:19: warning: 'gexiv2_metadata_try_get_tag_raw' is deprecated: Use 'gexiv2_metadata_try_get_tag_raw' instead [-Wdeprecated-declarations]
+   70 |           bytes = gexiv2_metadata_try_get_tag_raw (GEXIV2_METADATA (metadata),
+      |                   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:894:1: note: 'gexiv2_metadata_try_get_tag_raw' has been explicitly marked deprecated here
+  894 | G_DEPRECATED_FOR(gexiv2_metadata_try_get_tag_raw)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata.c:99:17: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+   99 |                 gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |                 ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata.c:104:17: warning: 'gexiv2_metadata_try_clear_tag' is deprecated: Use 'gexiv2_metadata_clear_tag' instead [-Wdeprecated-declarations]
+  104 |                 gexiv2_metadata_try_clear_tag (GEXIV2_METADATA (metadata),
+      |                 ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:331:1: note: 'gexiv2_metadata_try_clear_tag' has been explicitly marked deprecated here
+  331 | G_DEPRECATED_FOR(gexiv2_metadata_clear_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata.c:124:15: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  124 |               gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |               ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata.c:213:35: warning: 'gexiv2_metadata_try_get_orientation' is deprecated: Use 'gexiv2_metadata_get_orientation' instead [-Wdeprecated-declarations]
+  213 |                                   gexiv2_metadata_try_get_orientation (GEXIV2_METADATA (metadata), NULL));
+      |                                   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:1375:1: note: 'gexiv2_metadata_try_get_orientation' has been explicitly marked deprecated here
+ 1375 | G_DEPRECATED_FOR(gexiv2_metadata_get_orientation)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata.c:270:22: warning: 'gexiv2_metadata_try_get_tag_interpreted_string' is deprecated: Use 'gexiv2_metadata_get_tag_interpreted_string' instead [-Wdeprecated-declarations]
+  270 |       user_comment = gexiv2_metadata_try_get_tag_interpreted_string (GEXIV2_METADATA (metadata),
+      |                      ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:718:1: note: 'gexiv2_metadata_try_get_tag_interpreted_string' has been explicitly marked deprecated here
+  718 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_interpreted_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata.c:296:22: warning: 'gexiv2_metadata_try_get_tag_interpreted_string' is deprecated: Use 'gexiv2_metadata_get_tag_interpreted_string' instead [-Wdeprecated-declarations]
+  296 |       user_comment = gexiv2_metadata_try_get_tag_interpreted_string (GEXIV2_METADATA (metadata),
+      |                      ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:718:1: note: 'gexiv2_metadata_try_get_tag_interpreted_string' has been explicitly marked deprecated here
+  718 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_interpreted_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata.c:347:7: warning: 'gexiv2_metadata_try_set_orientation' is deprecated: Use 'gexiv2_metadata_set_orientation' instead [-Wdeprecated-declarations]
+  347 |       gexiv2_metadata_try_set_orientation (GEXIV2_METADATA (metadata),
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:1401:1: note: 'gexiv2_metadata_try_set_orientation' has been explicitly marked deprecated here
+ 1401 | G_DEPRECATED_FOR(gexiv2_metadata_set_orientation)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+8 warnings generated.
+[119/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpimageprocedure.c.o
+[120/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-interface.c.o
+[121/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpimage.c.o
+[122/2672] Linking target libgimpmodule/libgimpmodule-3.0.0.dylib
+[123/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpitem.c.o
+[124/2672] Generating gimp-data/cursors/gimp-tool-cursors_h with a custom command
+[125/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimplayermask.c.o
+[126/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimplinklayer.c.o
+[127/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpimagemetadata-save.c.o
+../libgimp/gimpimagemetadata-save.c:145:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  145 |           gexiv2_metadata_try_set_tag_string (g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:158:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  158 |           gexiv2_metadata_try_set_tag_string (g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:164:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  164 |           gexiv2_metadata_try_set_tag_string (g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:188:7: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  188 |       gexiv2_metadata_try_set_tag_string (g2metadata,
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:203:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  203 |           gexiv2_metadata_try_set_tag_string (g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:212:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  212 |           gexiv2_metadata_try_set_tag_string (g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:228:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  228 |           gexiv2_metadata_try_set_tag_string (g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:239:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  239 |           gexiv2_metadata_try_set_tag_string (g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:251:15: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  251 |               gexiv2_metadata_try_set_tag_string (g2metadata,
+      |               ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:279:19: warning: 'gexiv2_metadata_try_get_tag_string' is deprecated: Use 'gexiv2_metadata_get_tag_string' instead [-Wdeprecated-declarations]
+  279 |           value = gexiv2_metadata_try_get_tag_string (g2metadata,
+      |                   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:602:1: note: 'gexiv2_metadata_try_get_tag_string' has been explicitly marked deprecated here
+  602 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:368:21: warning: 'gexiv2_metadata_try_get_tag_multiple' is deprecated: Use 'gexiv2_metadata_get_tag_multiple' instead [-Wdeprecated-declarations]
+  368 |   gchar  **values = gexiv2_metadata_try_get_tag_multiple (src, tag, NULL);
+      |                     ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:815:1: note: 'gexiv2_metadata_try_get_tag_multiple' has been explicitly marked deprecated here
+  815 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_multiple)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:382:7: warning: 'gexiv2_metadata_try_set_tag_multiple' is deprecated: Use 'gexiv2_metadata_set_tag_multiple' instead [-Wdeprecated-declarations]
+  382 |       gexiv2_metadata_try_set_tag_multiple (dest, temp_tag,
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:836:1: note: 'gexiv2_metadata_try_set_tag_multiple' has been explicitly marked deprecated here
+  836 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_multiple)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:397:22: warning: 'gexiv2_metadata_try_get_tag_string' is deprecated: Use 'gexiv2_metadata_get_tag_string' instead [-Wdeprecated-declarations]
+  397 |       gchar *value = gexiv2_metadata_try_get_tag_string (src, tag, &error);
+      |                      ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:602:1: note: 'gexiv2_metadata_try_get_tag_string' has been explicitly marked deprecated here
+  602 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:402:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  402 |           gexiv2_metadata_try_set_tag_string (dest, tag, value, &error);
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:443:54: warning: 'gexiv2_metadata_try_get_tag_type' is deprecated: Use 'gexiv2_metadata_get_tag_type' instead [-Wdeprecated-declarations]
+  443 |       g_debug ("Tag: %s, tag type: %s", xmp_tags[i], gexiv2_metadata_try_get_tag_type (xmp_tags[i], NULL));
+      |                                                      ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:459:1: note: 'gexiv2_metadata_try_get_tag_type' has been explicitly marked deprecated here
+  459 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_type)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:455:54: warning: 'gexiv2_metadata_try_get_tag_type' is deprecated: Use 'gexiv2_metadata_get_tag_type' instead [-Wdeprecated-declarations]
+  455 |   g_debug ("Struct type for tag: %s, type: %s", tag, gexiv2_metadata_try_get_tag_type (tag, NULL));
+      |                                                      ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:459:1: note: 'gexiv2_metadata_try_get_tag_type' has been explicitly marked deprecated here
+  459 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_type)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:457:20: warning: 'gexiv2_metadata_try_get_tag_type' is deprecated: Use 'gexiv2_metadata_get_tag_type' instead [-Wdeprecated-declarations]
+  457 |   if (! g_strcmp0 (gexiv2_metadata_try_get_tag_type (tag, &error), "XmpSeq"))
+      |                    ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:459:1: note: 'gexiv2_metadata_try_get_tag_type' has been explicitly marked deprecated here
+  459 | G_DEPRECATED_FOR(gexiv2_metadata_get_tag_type)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:542:23: warning: 'gexiv2_metadata_try_set_xmp_tag_struct' is deprecated: Use 'gexiv2_metadata_set_xmp_tag_struct' instead [-Wdeprecated-declarations]
+  542 |                       gexiv2_metadata_try_set_xmp_tag_struct (GEXIV2_METADATA (metadata),
+      |                       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:683:1: note: 'gexiv2_metadata_try_set_xmp_tag_struct' has been explicitly marked deprecated here
+  683 | G_DEPRECATED_FOR(gexiv2_metadata_set_xmp_tag_struct)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:573:19: warning: 'gexiv2_metadata_try_set_xmp_tag_struct' is deprecated: Use 'gexiv2_metadata_set_xmp_tag_struct' instead [-Wdeprecated-declarations]
+  573 |                   gexiv2_metadata_try_set_xmp_tag_struct (GEXIV2_METADATA (metadata),
+      |                   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:683:1: note: 'gexiv2_metadata_try_set_xmp_tag_struct' has been explicitly marked deprecated here
+  683 | G_DEPRECATED_FOR(gexiv2_metadata_set_xmp_tag_struct)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:603:19: warning: 'gexiv2_metadata_try_set_xmp_tag_struct' is deprecated: Use 'gexiv2_metadata_set_xmp_tag_struct' instead [-Wdeprecated-declarations]
+  603 |                   gexiv2_metadata_try_set_xmp_tag_struct (GEXIV2_METADATA (metadata),
+      |                   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:683:1: note: 'gexiv2_metadata_try_set_xmp_tag_struct' has been explicitly marked deprecated here
+  683 | G_DEPRECATED_FOR(gexiv2_metadata_set_xmp_tag_struct)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:779:19: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  779 |                   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |                   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:789:19: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  789 |                   gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |                   ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:808:17: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+  808 |           if (! gexiv2_metadata_try_has_tag (new_g2metadata, exif_data[i], NULL) &&
+      |                 ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:839:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  839 |           gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:849:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  849 |           gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:859:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  859 |           gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:869:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  869 |           gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:879:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+  879 |           gexiv2_metadata_try_set_tag_string (GEXIV2_METADATA (metadata),
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:921:22: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+  921 |           else if (! gexiv2_metadata_try_has_tag (new_g2metadata, (gchar *) list->data, NULL) &&
+      |                      ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:944:17: warning: 'gexiv2_metadata_try_has_tag' is deprecated: Use 'gexiv2_metadata_has_tag' instead [-Wdeprecated-declarations]
+  944 |           if (! gexiv2_metadata_try_has_tag (new_g2metadata, iptc_data[i], NULL) &&
+      |                 ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:297:1: note: 'gexiv2_metadata_try_has_tag' has been explicitly marked deprecated here
+  297 | G_DEPRECATED_FOR(gexiv2_metadata_has_tag)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:960:7: warning: 'gexiv2_metadata_try_erase_exif_thumbnail' is deprecated: Use 'gexiv2_metadata_erase_exif_thumbnail' instead [-Wdeprecated-declarations]
+  960 |       gexiv2_metadata_try_erase_exif_thumbnail (new_g2metadata, &code_error);
+      |       ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:1092:1: note: 'gexiv2_metadata_try_erase_exif_thumbnail' has been explicitly marked deprecated here
+ 1092 | G_DEPRECATED_FOR(gexiv2_metadata_erase_exif_thumbnail)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:1010:11: warning: 'gexiv2_metadata_try_set_exif_thumbnail_from_buffer' is deprecated: Use 'gexiv2_metadata_set_exif_thumbnail_from_buffer' instead [-Wdeprecated-declarations]
+ 1010 |           gexiv2_metadata_try_set_exif_thumbnail_from_buffer (new_g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:1066:1: note: 'gexiv2_metadata_try_set_exif_thumbnail_from_buffer' has been explicitly marked deprecated here
+ 1066 | G_DEPRECATED_FOR(gexiv2_metadata_set_exif_thumbnail_from_buffer)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:1021:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1021 |           gexiv2_metadata_try_set_tag_string (new_g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:1032:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1032 |           gexiv2_metadata_try_set_tag_string (new_g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:1042:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1042 |           gexiv2_metadata_try_set_tag_string (new_g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:1052:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1052 |           gexiv2_metadata_try_set_tag_string (new_g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:1062:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1062 |           gexiv2_metadata_try_set_tag_string (new_g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+../libgimp/gimpimagemetadata-save.c:1073:11: warning: 'gexiv2_metadata_try_set_tag_string' is deprecated: Use 'gexiv2_metadata_set_tag_string' instead [-Wdeprecated-declarations]
+ 1073 |           gexiv2_metadata_try_set_tag_string (new_g2metadata,
+      |           ^
+/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16/gexiv2/gexiv2-metadata.h:624:1: note: 'gexiv2_metadata_try_set_tag_string' has been explicitly marked deprecated here
+  624 | G_DEPRECATED_FOR(gexiv2_metadata_set_tag_string)
+      | ^
+/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0/glib/gmacros.h:1277:44: note: expanded from macro 'G_DEPRECATED_FOR'
+ 1277 | #define G_DEPRECATED_FOR(f) __attribute__((__deprecated__("Use '" #f "' instead")))
+      |                                            ^
+38 warnings generated.
+[128/2672] Generating symbol file libgimpmodule/libgimpmodule-3.0.0.dylib.p/libgimpmodule-3.0.0.dylib.symbols
+[129/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimplayer.c.o
+[130/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimppalette.c.o
+[131/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/meson-generated_.._gimpwidgetsmarshal.c.o
+[132/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimploadprocedure.c.o
+[133/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimppath.c.o
+[134/2672] Generating gimp-data/cursors/gimp-tool-cursors_c with a custom command
+[135/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/meson-generated_.._.._gimp-data_icons_Default_gimp-icon-pixbufs.c.o
+[136/2672] Compiling C object plug-ins/script-fu/libscriptfu/libgimp-scriptfu-3.0.0.dylib.p/script-fu-dialog.c.o
+[137/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/meson-generated_.._.._gimp-data_cursors_gimp-color-picker-cursors.c.o
+[138/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpparamspecs.c.o
+[139/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpbusybox.c.o
+[140/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/meson-generated_.._.._gimp-data_cursors_gimp-tool-cursors.c.o
+[141/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpbutton.c.o
+[142/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpbrowser.c.o
+[143/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcairo-utils.c.o
+[144/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolordisplay.c.o
+[145/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcellrenderercolor.c.o
+[146/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpchainbutton.c.o
+[147/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcellrenderertoggle.c.o
+[148/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorarea.c.o
+[149/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorbutton.c.o
+[150/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorhexentry.c.o
+[151/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorprofileview.c.o
+[152/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolordisplaystack.c.o
+[153/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorscaleentry.c.o
+[154/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolornotebook.c.o
+[155/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorprofilecombobox.c.o
+[156/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorprofilestore.c.o
+[157/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpenumcombobox.c.o
+[158/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpenumlabel.c.o
+[159/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorscale.c.o
+[160/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpdialog.c.o
+[161/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpframe.c.o
+[162/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpenumwidgets.c.o
+[163/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpenumstore.c.o
+[164/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpfilechooser.c.o
+[165/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorselector.c.o
+[166/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorselection.c.o
+[167/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimphelpui.c.o
+[168/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpicons.c.o
+[169/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimplabelintwidget.c.o
+[170/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimphintbox.c.o
+[171/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpintstore.c.o
+[172/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimplabelspin.c.o
+[173/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimplabelcolor.c.o
+[174/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimplabeled.c.o
+[175/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimplabelstringwidget.c.o
+[176/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimplabelentry.c.o
+[177/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpintradioframe.c.o
+[178/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpintcombobox.c.o
+[179/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpmemsizeentry.c.o
+[180/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpoffsetarea.c.o
+[181/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppickbutton.c.o
+[182/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorprofilechooserdialog.c.o
+[183/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppatheditor.c.o
+[184/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpnumberpairentry.c.o
+[185/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpquerybox.c.o
+[186/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppreview.c.o
+[187/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpscaleentry.c.o
+[188/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppageselector.c.o
+[189/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpspinbutton.c.o
+[190/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpwidgets-error.c.o
+[191/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpscrolledpreview.c.o
+[192/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpruler.c.o
+../libgimpwidgets/gimpruler.c:618:12: warning: variable 'xdiff' set but not used [-Wunused-but-set-variable]
+  618 |       gint xdiff, ydiff;
+      |            ^
+../libgimpwidgets/gimpruler.c:618:19: warning: variable 'ydiff' set but not used [-Wunused-but-set-variable]
+  618 |       gint xdiff, ydiff;
+      |                   ^
+2 warnings generated.
+[193/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpstringcombobox.c.o
+[194/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpunitcombobox.c.o
+[195/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpsizeentry.c.o
+[196/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpeevl.c.o
+[197/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpspinscale.c.o
+[198/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpunitstore.c.o
+[199/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpzoommodel.c.o
+[200/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpwidgets.c.o
+[201/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcontroller.c.o
+[202/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppreviewarea.c.o
+[203/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorscales.c.o
+[204/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpwidgetsenums.c.o
+[205/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimppattern.c.o
+[206/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppropwidgets.c.o
+[207/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpwidgets-private.c.o
+[208/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimppdb.c.o
+[209/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpfileentry.c.o
+[210/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpcolorselect.c.o
+[211/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpprocedure-params.c.o
+[212/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpplugin.c.o
+[213/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpprocedureconfig.c.o
+[214/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpprogress.c.o
+[215/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpprocedure.c.o
+[216/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimprasterizable.c.o
+[217/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimptextlayer.c.o
+[218/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpresource.c.o
+[219/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpexportprocedure.c.o
+[220/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpselection.c.o
+[221/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpthumbnailprocedure.c.o
+[222/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpvectorlayer.c.o
+[223/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimp_pdb.c.o
+[224/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpvectorloadprocedure.c.o
+[225/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpbrushselect_pdb.c.o
+[226/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpchannel_pdb.c.o
+[227/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpbrush_pdb.c.o
+[228/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpbrushes_pdb.c.o
+[229/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimpwidgetsutils.c.o
+[230/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpbuffer_pdb.c.o
+[231/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdebug_pdb.c.o
+[232/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdisplay_pdb.c.o
+[233/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpcontext_pdb.c.o
+[234/2672] Compiling C object libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppickbutton-quartz.c.o
+FAILED: [code=1] libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppickbutton-quartz.c.o 
+cc -Ilibgimpwidgets/libgimpwidgets-3.0.0.dylib.p -Ilibgimpwidgets -I../libgimpwidgets -I. -I.. -Igimp-data/icons/Default -Igimp-data/cursors -I/opt/homebrew/Cellar/gegl/0.4.66/include/gegl-0.4 -I/opt/homebrew/Cellar/glib/2.86.3/include -I/opt/homebrew/Cellar/glib/2.86.3/include/gio-unix-2.0 -I/opt/homebrew/Cellar/json-glib/1.10.8/include/json-glib-1.0 -I/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/ffi -I/opt/homebrew/Cellar/glib/2.86.3/include/glib-2.0 -I/opt/homebrew/Cellar/glib/2.86.3/lib/glib-2.0/include -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/Cellar/pcre2/10.47/include -I/opt/homebrew/Cellar/babl/0.1.118/include/babl-0.1 -I/opt/homebrew/opt/little-cms2/include -I/opt/homebrew/Cellar/gexiv2/0.16.0/include/gexiv2-0.16 -I/opt/homebrew/Cellar/exiv2/0.28.7/include -I/opt/homebrew/Cellar/inih/62/include -I/opt/homebrew/Cellar/brotli/1.2.0/include -I/opt/homebrew/Cellar/gtk+3/3.24.51/include/gtk-3.0 -I/opt/homebrew/Cellar/pango/1.57.0_1/include/pango-1.0 -I/opt/homebrew/Cellar/harfbuzz/12.3.0/include/harfbuzz -I/opt/homebrew/Cellar/graphite2/1.3.14/include -I/opt/homebrew/Cellar/cairo/1.18.4/include -I/opt/homebrew/Cellar/cairo/1.18.4/include/cairo -I/opt/homebrew/Cellar/fontconfig/2.17.1/include -I/opt/homebrew/opt/freetype/include/freetype2 -I/opt/homebrew/Cellar/libxext/1.3.6/include -I/opt/homebrew/Cellar/xorgproto/2025.1/include -I/opt/homebrew/Cellar/libxrender/0.9.12/include -I/opt/homebrew/Cellar/libx11/1.8.12/include -I/opt/homebrew/Cellar/libxcb/1.17.0/include -I/opt/homebrew/Cellar/libxau/1.0.12/include -I/opt/homebrew/Cellar/libxdmcp/1.1.5/include -I/opt/homebrew/Cellar/pixman/0.46.4/include/pixman-1 -I/opt/homebrew/include/gdk-pixbuf-2.0 -I/opt/homebrew/opt/libpng/include/libpng16 -I/opt/homebrew/opt/libtiff/include -I/opt/homebrew/opt/zstd/include -I/opt/homebrew/Cellar/xz/5.8.2/include -I/opt/homebrew/opt/jpeg-turbo/include -I/opt/homebrew/Cellar/at-spi2-core/2.58.3/include/atk-1.0 -I/opt/homebrew/Cellar/libepoxy/1.5.10/include -I/opt/homebrew/Cellar/fribidi/1.0.16/include/fribidi -fdiagnostics-color=always -Wall -Winvalid-pch -O2 -g -Wabsolute-value -Wdeclaration-after-statement -Wenum-conversion -Wliteral-conversion -Wno-strict-prototypes -Wold-style-definition -Wparentheses-equality '-W#pragma-messages' -Wsometimes-uninitialized -Wtautological-unsigned-enum-zero-compare -Wunneeded-internal-declaration -Wunused-function -Wunused-value -Werror=implicit-function-declaration -DGDK_PIXBUF_VERSION_MIN_REQUIRED=GDK_PIXBUF_VERSION_2_30 -DGDK_PIXBUF_VERSION_MAX_ALLOWED=GDK_PIXBUF_VERSION_2_30 -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_70 -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_76 -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_24 -DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_3_24 -fdiagnostics-show-option -fno-common -Wformat -Wformat-security -Winit-self -Wmissing-declarations -Wmissing-format-attribute -Wpointer-arith -Wreturn-type -Wtype-limits -DHAVE_CONFIG_H -ObjC '-DG_LOG_DOMAIN="LibGimpWidgets"' -DGIMP_WIDGETS_COMPILATION -Wno-unguarded-availability-new -MD -MQ libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppickbutton-quartz.c.o -MF libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppickbutton-quartz.c.o.d -o libgimpwidgets/libgimpwidgets-3.0.0.dylib.p/gimppickbutton-quartz.c.o -c ../libgimpwidgets/gimppickbutton-quartz.c
+../libgimpwidgets/gimppickbutton-quartz.c:187:20: error: 'CGWindowListCreateImage' is unavailable: obsoleted in macOS 15.0 - Please use ScreenCaptureKit instead.
+  187 |   root_image_ref = CGWindowListCreateImage (rect,
+      |                    ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h:271:33: note: 'CGWindowListCreateImage' has been explicitly marked unavailable here
+  271 | CG_EXTERN CGImageRef __nullable CGWindowListCreateImage(CGRect screenBounds,
+      |                                 ^
+../libgimpwidgets/gimppickbutton-quartz.c:175:10: warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+  175 |   NSRect rect = NSMakeRect (point.x, point.y,
+      |          ^
+../libgimpwidgets/gimppickbutton-quartz.c:455:29: warning: variable 'controller' set but not used [-Wunused-but-set-variable]
+  455 |   GimpPickWindowController *controller;
+      |                             ^
+2 warnings and 1 error generated.
+[235/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdrawablecolor_pdb.c.o
+[236/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdrawable_pdb.c.o
+[237/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdrawableedit_pdb.c.o
+[238/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdrawablefilter_pdb.c.o
+[239/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdynamics_pdb.c.o
+[240/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpdrawableselect_pdb.c.o
+[241/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpedit_pdb.c.o
+[242/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpfile_pdb.c.o
+[243/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpfloatingsel_pdb.c.o
+[244/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpfont_pdb.c.o
+[245/2672] Compiling C object libgimp/libgimp-3.0.0.dylib.p/gimpfonts_pdb.c.o
+ninja: build stopped: subcommand failed.

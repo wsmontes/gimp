@@ -47,6 +47,10 @@ libappgegl_sources = [
   stamp_gegl_enums
 ]
 
+if have_metal
+  libappgegl_sources += [ 'gimp-gegl-loops-metal.m' ]
+endif
+
 libappgegl = static_library('appgegl',
   libappgegl_sources,
   link_with: libappgegl_loops[0],
