@@ -61,6 +61,22 @@ libappoperations_sources = [
   stamp_operations_enums,
 ]
 
+# Add Metal-accelerated operations if Metal support is enabled
+if have_metal
+  libappoperations_sources += [
+    'gimp-operation-metal-invert.c',
+    'gimp-operation-metal-brightness-contrast.c',
+    'gimp-operation-metal-blur-gaussian.c',
+    'gimp-operation-metal-desaturate.c',
+    'gimp-operation-metal-edge-sobel.c',
+    'gimp-operation-metal-sharpen.c',
+    'gimp-operation-metal-gaussian-blur.c',
+    'gimp-operation-metal-unsharp-mask.c',
+    'gimp-operation-metal-hue-saturation.c',
+    'gimp-operation-metal-color-temperature.c',
+  ]
+endif
+
 libappoperations = static_library('appoperations',
   libappoperations_sources,
   include_directories: [ rootInclude, rootAppInclude, ],

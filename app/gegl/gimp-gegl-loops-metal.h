@@ -65,6 +65,53 @@ gboolean   gimp_gegl_metal_sharpen           (GeglBuffer          *src,
                                               const GeglRectangle *dest_rect,
                                               gfloat               amount);
 
+gboolean   gimp_gegl_metal_unsharp_mask      (GeglBuffer          *src,
+                                              const GeglRectangle *src_rect,
+                                              GeglBuffer          *dest,
+                                              const GeglRectangle *dest_rect,
+                                              gdouble              std_dev,
+                                              gdouble              scale);
+
+/* Color manipulation functions */
+gboolean   gimp_gegl_metal_hue_saturation    (GeglBuffer          *src,
+                                              const GeglRectangle *src_rect,
+                                              GeglBuffer          *dest,
+                                              const GeglRectangle *dest_rect,
+                                              gdouble              hue,
+                                              gdouble              saturation,
+                                              gdouble              lightness);
+
+gboolean   gimp_gegl_metal_color_temperature (GeglBuffer          *src,
+                                              const GeglRectangle *src_rect,
+                                              GeglBuffer          *dest,
+                                              const GeglRectangle *dest_rect,
+                                              gdouble              temperature);
+
+/* Transform functions */
+gboolean   gimp_gegl_metal_scale             (GeglBuffer          *src,
+                                              const GeglRectangle *src_rect,
+                                              GeglBuffer          *dest,
+                                              const GeglRectangle *dest_rect);
+
+gboolean   gimp_gegl_metal_rotate            (GeglBuffer          *src,
+                                              const GeglRectangle *src_rect,
+                                              GeglBuffer          *dest,
+                                              const GeglRectangle *dest_rect,
+                                              gdouble              angle);
+
+/* Display rendering functions - critical for canvas display */
+gboolean   gimp_gegl_metal_render_to_buffer  (GeglBuffer          *src,
+                                              const GeglRectangle *src_rect,
+                                              const Babl          *format,
+                                              guchar              *dest_data,
+                                              gint                 dest_stride);
+
+gboolean   gimp_gegl_metal_render_to_cairo   (GeglBuffer          *src,
+                                              const GeglRectangle *src_rect,
+                                              guchar              *dest_data,
+                                              gint                 dest_stride,
+                                              gboolean             premultiply_alpha);
+
 #endif /* HAVE_METAL */
 
 

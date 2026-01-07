@@ -578,4 +578,445 @@ gimp_gegl_metal_sharpen (GeglBuffer          *src,
   }
 }
 
+
+/* Display rendering with Metal GPU - for canvas rendering to byte buffer */
+gboolean
+gimp_gegl_metal_render_to_buffer (GeglBuffer          *src,
+                                  const GeglRectangle *src_rect,
+                                  const Babl          *format,
+                                  guchar              *dest_data,
+                                  gint                 dest_stride)
+{
+  if (!metal_initialized)
+    return FALSE;
+
+  @autoreleasepool {
+    /* Convert to Metal texture */
+    id<MTLTexture> input_tex = buffer_to_metal_texture (src, src_rect, metal_device);
+    if (!input_tex)
+      return FALSE;
+
+    MTLTextureDescriptor *desc = [MTLTextureDescriptor
+        texture2DDescriptorWithPixelFormat:MTLPixelFormatBGRA8Unorm
+                                     width:src_rect->width
+                                    height:src_rect->height
+                                 mipmapped:NO];
+    desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
+    id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
+
+    if (!output_tex)
+      return FALSE;
+
+    /* Get display render shader */
+    id<MTLFunction> function = [metal_library newFunctionWithName:@"gimp_display_render_shader"];
+    if (!function)
+      return FALSE;
+
+    NSError *error = nil;
+    id<MTLComputePipelineState> pipeline =
+        [metal_device newComputePipelineStateWithFunction:function error:&error];
+
+    if (error || !pipeline)
+      return FALSE;
+
+    id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [cmd computeCommandEncoder];
+
+    [encoder setComputePipelineState:pipeline];
+    [encoder setTexture:input_tex atIndex:0];
+    [encoder setTexture:output_tex atIndex:1];
+
+    MTLSize threads = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+        (src_rect->width + 15) / 16,
+        (src_rect->height + 15) / 16,
+        1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threads];
+    [encoder endEncoding];
+    [cmd commit];
+    [cmd waitUntilCompleted];
+
+    /* Copy from texture to byte buffer */
+    [output_tex getBytes:dest_data
+             bytesPerRow:dest_stride
+              fromRegion:MTLRegionMake2D(0, 0, src_rect->width, src_rect->height)
+             mipmapLevel:0];
+
+    g_message ("🚀 Metal: Display render %dx%d (GPU accelerated)",
+               src_rect->width, src_rect->height);
+
+    return TRUE;
+  }
+}
+
+
+/* Unsharp Mask using MPS - high-quality edge enhancement */
+gboolean
+gimp_gegl_metal_unsharp_mask (GeglBuffer          *src,
+                              const GeglRectangle *src_rect,
+                              GeglBuffer          *dest,
+                              const GeglRectangle *dest_rect,
+                              gdouble              std_dev,
+                              gdouble              scale)
+{
+  if (!metal_initialized)
+    return FALSE;
+
+  @autoreleasepool {
+    id<MTLTexture> input_tex = buffer_to_metal_texture (src, src_rect, metal_device);
+    if (!input_tex)
+      return FALSE;
+
+    MTLTextureDescriptor *desc = [MTLTextureDescriptor
+        texture2DDescriptorWithPixelFormat:MTLPixelFormatRGBA32Float
+                                     width:dest_rect->width
+                                    height:dest_rect->height
+                                 mipmapped:NO];
+    desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
+
+    id<MTLTexture> blur_tex = [metal_device newTextureWithDescriptor:desc];
+    if (!blur_tex)
+      return FALSE;
+
+    id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
+    if (!output_tex)
+      return FALSE;
+
+    id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
+
+    MPSImageGaussianBlur *blur = [[MPSImageGaussianBlur alloc]
+        initWithDevice:metal_device sigma:std_dev];
+    [blur encodeToCommandBuffer:cmd sourceTexture:input_tex destinationTexture:blur_tex];
+
+    id<MTLComputeCommandEncoder> encoder = [cmd computeCommandEncoder];
+
+    id<MTLFunction> function = [metal_library newFunctionWithName:@"gimp_sharpen_shader"];
+    if (!function)
+      return FALSE;
+
+    NSError *error = nil;
+    id<MTLComputePipelineState> pipeline =
+        [metal_device newComputePipelineStateWithFunction:function error:&error];
+
+    if (error || !pipeline)
+      return FALSE;
+
+    [encoder setComputePipelineState:pipeline];
+    [encoder setTexture:input_tex atIndex:0];
+    [encoder setTexture:output_tex atIndex:1];
+
+    float amount = (float)scale;
+    [encoder setBytes:&amount length:sizeof(float) atIndex:0];
+
+    MTLSize threads = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+        (dest_rect->width + 15) / 16,
+        (dest_rect->height + 15) / 16,
+        1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threads];
+    [encoder endEncoding];
+    [cmd commit];
+    [cmd waitUntilCompleted];
+
+    metal_texture_to_buffer (output_tex, dest, dest_rect);
+
+    return TRUE;
+  }
+}
+
+
+/* Hue-Saturation adjustment with Metal GPU */
+gboolean
+gimp_gegl_metal_hue_saturation (GeglBuffer          *src,
+                                const GeglRectangle *src_rect,
+                                GeglBuffer          *dest,
+                                const GeglRectangle *dest_rect,
+                                gdouble              hue,
+                                gdouble              saturation,
+                                gdouble              lightness)
+{
+  if (!metal_initialized)
+    return FALSE;
+
+  @autoreleasepool {
+    id<MTLTexture> input_tex = buffer_to_metal_texture (src, src_rect, metal_device);
+    if (!input_tex)
+      return FALSE;
+
+    MTLTextureDescriptor *desc = [MTLTextureDescriptor
+        texture2DDescriptorWithPixelFormat:MTLPixelFormatRGBA32Float
+                                     width:dest_rect->width
+                                    height:dest_rect->height
+                                 mipmapped:NO];
+    desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
+    id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
+
+    if (!output_tex)
+      return FALSE;
+
+    id<MTLFunction> function = [metal_library newFunctionWithName:@"gimp_hue_saturation_shader"];
+    if (!function)
+      return FALSE;
+
+    NSError *error = nil;
+    id<MTLComputePipelineState> pipeline =
+        [metal_device newComputePipelineStateWithFunction:function error:&error];
+
+    if (error || !pipeline)
+      return FALSE;
+
+    id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [cmd computeCommandEncoder];
+
+    [encoder setComputePipelineState:pipeline];
+    [encoder setTexture:input_tex atIndex:0];
+    [encoder setTexture:output_tex atIndex:1];
+
+    float hue_f = (float)hue;
+    float sat_f = (float)saturation;
+    float light_f = (float)lightness;
+    [encoder setBytes:&hue_f length:sizeof(float) atIndex:0];
+    [encoder setBytes:&sat_f length:sizeof(float) atIndex:1];
+    [encoder setBytes:&light_f length:sizeof(float) atIndex:2];
+
+    MTLSize threads = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+        (dest_rect->width + 15) / 16,
+        (dest_rect->height + 15) / 16,
+        1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threads];
+    [encoder endEncoding];
+    [cmd commit];
+    [cmd waitUntilCompleted];
+
+    metal_texture_to_buffer (output_tex, dest, dest_rect);
+
+    g_message ("🚀 Metal: Hue-Saturation %dx%d h=%.2f s=%.2f l=%.2f (GPU)",
+               dest_rect->width, dest_rect->height, hue, saturation, lightness);
+
+    return TRUE;
+  }
+}
+
+
+/* Color Temperature adjustment with Metal GPU */
+gboolean
+gimp_gegl_metal_color_temperature (GeglBuffer          *src,
+                                   const GeglRectangle *src_rect,
+                                   GeglBuffer          *dest,
+                                   const GeglRectangle *dest_rect,
+                                   gdouble              temperature)
+{
+  if (!metal_initialized)
+    return FALSE;
+
+  @autoreleasepool {
+    id<MTLTexture> input_tex = buffer_to_metal_texture (src, src_rect, metal_device);
+    if (!input_tex)
+      return FALSE;
+
+    MTLTextureDescriptor *desc = [MTLTextureDescriptor
+        texture2DDescriptorWithPixelFormat:MTLPixelFormatRGBA32Float
+                                     width:dest_rect->width
+                                    height:dest_rect->height
+                                 mipmapped:NO];
+    desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
+    id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
+
+    if (!output_tex)
+      return FALSE;
+
+    id<MTLFunction> function = [metal_library newFunctionWithName:@"gimp_color_temperature_shader"];
+    if (!function)
+      return FALSE;
+
+    NSError *error = nil;
+    id<MTLComputePipelineState> pipeline =
+        [metal_device newComputePipelineStateWithFunction:function error:&error];
+
+    if (error || !pipeline)
+      return FALSE;
+
+    id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [cmd computeCommandEncoder];
+
+    [encoder setComputePipelineState:pipeline];
+    [encoder setTexture:input_tex atIndex:0];
+    [encoder setTexture:output_tex atIndex:1];
+
+    float temp_f = (float)temperature;
+    [encoder setBytes:&temp_f length:sizeof(float) atIndex:0];
+
+    MTLSize threads = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+        (dest_rect->width + 15) / 16,
+        (dest_rect->height + 15) / 16,
+        1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threads];
+    [encoder endEncoding];
+    [cmd commit];
+    [cmd waitUntilCompleted];
+
+    metal_texture_to_buffer (output_tex, dest, dest_rect);
+
+    g_message ("🚀 Metal: Color Temperature %dx%d temp=%.2f (GPU)",
+               dest_rect->width, dest_rect->height, temperature);
+
+    return TRUE;
+  }
+}
+
+
+/* Scale with bilinear filtering - high quality GPU resize */
+gboolean
+gimp_gegl_metal_scale (GeglBuffer          *src,
+                       const GeglRectangle *src_rect,
+                       GeglBuffer          *dest,
+                       const GeglRectangle *dest_rect)
+{
+  if (!metal_initialized)
+    return FALSE;
+
+  @autoreleasepool {
+    id<MTLTexture> input_tex = buffer_to_metal_texture (src, src_rect, metal_device);
+    if (!input_tex)
+      return FALSE;
+
+    MTLTextureDescriptor *desc = [MTLTextureDescriptor
+        texture2DDescriptorWithPixelFormat:MTLPixelFormatRGBA32Float
+                                     width:dest_rect->width
+                                    height:dest_rect->height
+                                 mipmapped:NO];
+    desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
+    id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
+
+    if (!output_tex)
+      return FALSE;
+
+    id<MTLFunction> function = [metal_library newFunctionWithName:@"gimp_scale_bilinear_shader"];
+    if (!function)
+      return FALSE;
+
+    NSError *error = nil;
+    id<MTLComputePipelineState> pipeline =
+        [metal_device newComputePipelineStateWithFunction:function error:&error];
+
+    if (error || !pipeline)
+      return FALSE;
+
+    id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [cmd computeCommandEncoder];
+
+    [encoder setComputePipelineState:pipeline];
+    [encoder setTexture:input_tex atIndex:0];
+    [encoder setTexture:output_tex atIndex:1];
+
+    float scale_x = (float)dest_rect->width / (float)src_rect->width;
+    float scale_y = (float)dest_rect->height / (float)src_rect->height;
+    float scale_factor[2] = {scale_x, scale_y};
+    [encoder setBytes:&scale_factor length:sizeof(float) * 2 atIndex:0];
+
+    MTLSize threads = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+        (dest_rect->width + 15) / 16,
+        (dest_rect->height + 15) / 16,
+        1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threads];
+    [encoder endEncoding];
+    [cmd commit];
+    [cmd waitUntilCompleted];
+
+    metal_texture_to_buffer (output_tex, dest, dest_rect);
+
+    g_message ("🚀 Metal: Scale %dx%d → %dx%d (GPU bilinear)",
+               src_rect->width, src_rect->height,
+               dest_rect->width, dest_rect->height);
+
+    return TRUE;
+  }
+}
+
+
+/* Rotate with arbitrary angle - GPU texture sampling */
+gboolean
+gimp_gegl_metal_rotate (GeglBuffer          *src,
+                        const GeglRectangle *src_rect,
+                        GeglBuffer          *dest,
+                        const GeglRectangle *dest_rect,
+                        gdouble              angle)
+{
+  if (!metal_initialized)
+    return FALSE;
+
+  @autoreleasepool {
+    id<MTLTexture> input_tex = buffer_to_metal_texture (src, src_rect, metal_device);
+    if (!input_tex)
+      return FALSE;
+
+    MTLTextureDescriptor *desc = [MTLTextureDescriptor
+        texture2DDescriptorWithPixelFormat:MTLPixelFormatRGBA32Float
+                                     width:dest_rect->width
+                                    height:dest_rect->height
+                                 mipmapped:NO];
+    desc.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
+    id<MTLTexture> output_tex = [metal_device newTextureWithDescriptor:desc];
+
+    if (!output_tex)
+      return FALSE;
+
+    id<MTLFunction> function = [metal_library newFunctionWithName:@"gimp_rotate_shader"];
+    if (!function)
+      return FALSE;
+
+    NSError *error = nil;
+    id<MTLComputePipelineState> pipeline =
+        [metal_device newComputePipelineStateWithFunction:function error:&error];
+
+    if (error || !pipeline)
+      return FALSE;
+
+    id<MTLCommandBuffer> cmd = [metal_queue commandBuffer];
+    id<MTLComputeCommandEncoder> encoder = [cmd computeCommandEncoder];
+
+    [encoder setComputePipelineState:pipeline];
+    [encoder setTexture:input_tex atIndex:0];
+    [encoder setTexture:output_tex atIndex:1];
+
+    float angle_f = (float)angle;
+    float center[2] = {0.5f, 0.5f};
+    [encoder setBytes:&angle_f length:sizeof(float) atIndex:0];
+    [encoder setBytes:&center length:sizeof(float) * 2 atIndex:1];
+
+    MTLSize threads = MTLSizeMake(16, 16, 1);
+    MTLSize threadgroups = MTLSizeMake(
+        (dest_rect->width + 15) / 16,
+        (dest_rect->height + 15) / 16,
+        1
+    );
+
+    [encoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threads];
+    [encoder endEncoding];
+    [cmd commit];
+    [cmd waitUntilCompleted];
+
+    metal_texture_to_buffer (output_tex, dest, dest_rect);
+
+    g_message ("🚀 Metal: Rotate %dx%d angle=%.1f° (GPU)",
+               dest_rect->width, dest_rect->height, angle * 180.0 / M_PI);
+
+    return TRUE;
+  }
+}
+
+
 #endif /* HAVE_METAL */

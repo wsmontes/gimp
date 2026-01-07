@@ -1,8 +1,8 @@
 /* GIMP - The GNU Image Manipulation Program
  * Copyright (C) 2026 GIMP Contributors
  *
- * gimp-operation-metal-invert.c
- * Metal-accelerated invert operation
+ * gimp-operation-metal-desaturate.c
+ * Metal-accelerated desaturate operation
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,52 +23,46 @@
 #include <gegl.h>
 
 #include "../gegl/gimp-gegl-loops-metal.h"
-#include "gimp-operation-metal-invert.h"
+#include "gimp-operation-metal-desaturate.h"
 
 
-enum
-{
-  PROP_0
-};
+static void     gimp_operation_metal_desaturate_prepare (GeglOperation       *operation);
+static gboolean gimp_operation_metal_desaturate_process (GeglOperation       *operation,
+                                                         GeglBuffer          *input,
+                                                         GeglBuffer          *output,
+                                                         const GeglRectangle *result,
+                                                         gint                 level);
 
 
-static void     gimp_operation_metal_invert_prepare (GeglOperation       *operation);
-static gboolean gimp_operation_metal_invert_process (GeglOperation       *operation,
-                                                      GeglBuffer          *input,
-                                                      GeglBuffer          *output,
-                                                      const GeglRectangle *result,
-                                                      gint                 level);
-
-
-G_DEFINE_TYPE (GimpOperationMetalInvert, gimp_operation_metal_invert,
+G_DEFINE_TYPE (GimpOperationMetalDesaturate, gimp_operation_metal_desaturate,
                GEGL_TYPE_OPERATION_FILTER)
 
-#define parent_class gimp_operation_metal_invert_parent_class
+#define parent_class gimp_operation_metal_desaturate_parent_class
 
 
 static void
-gimp_operation_metal_invert_class_init (GimpOperationMetalInvertClass *klass)
+gimp_operation_metal_desaturate_class_init (GimpOperationMetalDesaturateClass *klass)
 {
   GeglOperationClass       *operation_class = GEGL_OPERATION_CLASS (klass);
   GeglOperationFilterClass *filter_class    = GEGL_OPERATION_FILTER_CLASS (klass);
 
-  operation_class->prepare = gimp_operation_metal_invert_prepare;
-  filter_class->process    = gimp_operation_metal_invert_process;
+  operation_class->prepare = gimp_operation_metal_desaturate_prepare;
+  filter_class->process    = gimp_operation_metal_desaturate_process;
 
   gegl_operation_class_set_keys (operation_class,
-                                  "name",        "gimp:metal-invert",
+                                  "name",        "gimp:metal-desaturate",
                                   "categories",  "color",
-                                  "description", "Invert colors using Metal GPU acceleration",
+                                  "description", "Desaturate using Metal GPU acceleration",
                                   NULL);
 }
 
 static void
-gimp_operation_metal_invert_init (GimpOperationMetalInvert *self)
+gimp_operation_metal_desaturate_init (GimpOperationMetalDesaturate *self)
 {
 }
 
 static void
-gimp_operation_metal_invert_prepare (GeglOperation *operation)
+gimp_operation_metal_desaturate_prepare (GeglOperation *operation)
 {
   const Babl *format = babl_format ("RGBA float");
 
@@ -77,19 +71,19 @@ gimp_operation_metal_invert_prepare (GeglOperation *operation)
 }
 
 static gboolean
-gimp_operation_metal_invert_process (GeglOperation       *operation,
-                                      GeglBuffer          *input,
-                                      GeglBuffer          *output,
-                                      const GeglRectangle *result,
-                                      gint                 level)
+gimp_operation_metal_desaturate_process (GeglOperation       *operation,
+                                        GeglBuffer          *input,
+                                        GeglBuffer          *output,
+                                        const GeglRectangle *result,
+                                        gint                 level)
 {
 #ifdef HAVE_METAL
   /* Try Metal acceleration first */
-  if (gimp_gegl_metal_invert (input, result, output, result))
+  if (gimp_gegl_metal_desaturate (input, result, output, result))
     return TRUE;
 #endif
 
-  /* Fallback to CPU: simple inversion */
+  /* Fallback to CPU: simple luminance-based desaturation */
   {
     GeglBufferIterator *iter;
 
@@ -109,10 +103,12 @@ gimp_operation_metal_invert_process (GeglOperation       *operation,
 
         while (n--)
           {
-            out[0] = 1.0f - in[0];
-            out[1] = 1.0f - in[1];
-            out[2] = 1.0f - in[2];
-            out[3] = in[3];  /* Keep alpha */
+            gfloat luminance = in[0] * 0.21f + in[1] * 0.72f + in[2] * 0.07f;
+
+            out[0] = luminance;
+            out[1] = luminance;
+            out[2] = luminance;
+            out[3] = in[3];
 
             in  += 4;
             out += 4;

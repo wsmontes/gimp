@@ -60,6 +60,19 @@
 #include "gimpoperationposterize.h"
 #include "gimpoperationthreshold.h"
 
+#ifdef HAVE_METAL
+#include "gimp-operation-metal-invert.h"
+#include "gimp-operation-metal-brightness-contrast.h"
+#include "gimp-operation-metal-blur-gaussian.h"
+#include "gimp-operation-metal-desaturate.h"
+#include "gimp-operation-metal-edge-sobel.h"
+#include "gimp-operation-metal-sharpen.h"
+#include "gimp-operation-metal-gaussian-blur.h"
+#include "gimp-operation-metal-unsharp-mask.h"
+#include "gimp-operation-metal-hue-saturation.h"
+#include "gimp-operation-metal-color-temperature.h"
+#endif
+
 #include "gimp-operation-config.h"
 #include "gimpbrightnesscontrastconfig.h"
 #include "gimpcolorbalanceconfig.h"
@@ -184,6 +197,23 @@ gimp_operations_init (Gimp *gimp)
   g_type_class_ref (GIMP_TYPE_OPERATION_OVERWRITE);
   g_type_class_ref (GIMP_TYPE_OPERATION_REPLACE);
   g_type_class_ref (GIMP_TYPE_OPERATION_ANTI_ERASE);
+
+#ifdef HAVE_METAL
+  /* Register Metal operations that OVERRIDE GEGL built-ins */
+  /* These must be registered FIRST to take precedence */
+  g_type_class_ref (GIMP_TYPE_OPERATION_METAL_GAUSSIAN_BLUR);
+  g_type_class_ref (GIMP_TYPE_OPERATION_METAL_UNSHARP_MASK);
+  g_type_class_ref (GIMP_TYPE_OPERATION_METAL_HUE_SATURATION);
+  g_type_class_ref (GIMP_TYPE_OPERATION_METAL_COLOR_TEMPERATURE);
+  g_type_class_ref (GIMP_TYPE_OPERATION_METAL_INVERT);
+  g_type_class_ref (GIMP_TYPE_OPERATION_METAL_BRIGHTNESS_CONTRAST);
+  g_type_class_ref (GIMP_TYPE_OPERATION_METAL_BLUR_GAUSSIAN);
+  g_type_class_ref (GIMP_TYPE_OPERATION_METAL_DESATURATE);
+  g_type_class_ref (GIMP_TYPE_OPERATION_METAL_EDGE_SOBEL);
+  g_type_class_ref (GIMP_TYPE_OPERATION_METAL_SHARPEN);
+
+  g_message ("Metal: Registered GPU-accelerated operations (overriding GEGL)");
+#endif
 
   gimp_operation_config_init_start (gimp);
 
